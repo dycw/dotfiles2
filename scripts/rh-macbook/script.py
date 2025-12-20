@@ -3,7 +3,7 @@
 # requires-python = ">=3.14"
 # dependencies = [
 #   "click >= 8.3.1, < 8.4",
-#   "dycw-utilities >= 0.170.0, < 0.171",
+#   "dycw-utilities >= 0.170.1, < 0.172",
 #   "pytest-xdist >= 3.8.0, < 3.9",
 #   "pyyaml >= 6.0.3, < 6.1",
 #   "rich >= 14.2.0, < 14.3",
