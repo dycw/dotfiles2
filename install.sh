@@ -1,9 +1,13 @@
 #!/usr/bin/env sh
 
-echo "Running installer..."
+# echo
+echo_date() { echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*" >&2; }
+
+# main
+echo_date "Running installer..."
 
 if [ $(hostname) = RH-MacBook ]; then
-    echo "Running installer for 'RH-MacBook'..."
+    echo_date "This is 'RH-MacBook'; running installer for 'RH-MacBook'..."
     ./scripts/setup-uv.sh
-    ./scripts/rh-macbook.py
+    ./scripts/uv/rh-macbook.py
 fi
