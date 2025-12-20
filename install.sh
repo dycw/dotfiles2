@@ -6,6 +6,8 @@ echo_date() { echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*" >&2; }
 # main
 echo_date "Running installer..."
 
+PATH="${HOME}/.local/bin${PATH:+:${PATH}}"
+
 if [ $(hostname) = RH-MacBook ]; then
     echo_date "This is 'RH-MacBook'; running installer for 'RH-MacBook'..."
     ./scripts/setup-uv.sh

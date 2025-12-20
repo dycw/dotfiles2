@@ -1,3 +1,8 @@
 #!/usr/bin/env sh
 
-git add . && git commit -m asdf --no-verify && git push
+(
+    cd $(git rev-parse --show-toplevel) && \
+    git add . && \
+    git commit -m asdf --no-verify && \
+    git push
+)
