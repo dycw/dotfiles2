@@ -1,0 +1,46 @@
+repos:
+  - hooks:
+      - args:
+          - --option
+          - indent_tables=true
+          - --option
+          - indent_entries=true
+          - --option
+          - reorder_keys=true
+        id: taplo-format
+    repo: https://github.com/compwa/taplo-pre-commit
+    rev: v0.9.3
+  - hooks:
+      - args:
+          - --github--push--tag
+          - --pre-commit--prettier
+          - --pre-commit--taplo
+        id: nitpick
+    repo: https://github.com/dycw/pre-commit-hook-nitpick
+    rev: 0.3.4
+  - hooks:
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: destroyed-symlinks
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - args:
+          - --fix=lf
+        id: mixed-line-ending
+      - id: no-commit-to-branch
+      - args:
+          - --autofix
+        id: pretty-format-json
+      - id: trailing-whitespace
+    repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+  - hooks:
+      - entry: npx prettier --write
+        id: prettier
+        language: system
+        name: prettier
+        types_or:
+          - markdown
+          - yaml
+    repo: local
