@@ -17,7 +17,7 @@ repos:
           - --pre-commit--taplo
         id: nitpick
     repo: https://github.com/dycw/pre-commit-hook-nitpick
-    rev: 0.3.4
+    rev: 0.7.8
   - hooks:
       - id: check-executables-have-shebangs
       - id: check-merge-conflict

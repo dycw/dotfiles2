@@ -1,6 +1,6 @@
 name: push
 
-"on":
+on:
   push:
     branches:
       - master
@@ -13,3 +13,7 @@ jobs:
         uses: dycw/action-tag-commit@latest
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Tag latest commit
+        uses: dycw/action-tag@latest
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
