@@ -16,6 +16,7 @@ from shutil import which
 
 from click import command
 from utilities.click import CONTEXT_SETTINGS
+from utilities.logging import basic_config
 from utilities.subprocess import apt_install_cmd, git_clone_cmd, run, sudo_cmd
 
 _LOGGER = getLogger(__name__)
