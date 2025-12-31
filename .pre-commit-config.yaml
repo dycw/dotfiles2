@@ -1,68 +1,77 @@
 repos:
-- repo: https://github.com/dycw/pre-commit-hook-nitpick
-  rev: 0.7.9
-  hooks:
-  - args:
-    - --description=My dotfiles
-    - --github--pull-request--pre-commit
-    - --github--pull-request--pyright
-    - --github--pull-request--pytest--os--macos
-    - --github--pull-request--pytest--os--ubuntu
-    - --github--pull-request--pytest--python-version--default
-    - --github--pull-request--pytest--resolution--highest
-    - --github--pull-request--ruff
-    - --github--push--tag
-    - --package-name
-    - --pre-commit--prettier
-    - --pre-commit--ruff
-    - --pre-commit--taplo
-    - --pre-commit--uv
-    - --pyproject
-    - --pyright
-    - --pytest
-    - --python-package-name=dotfiles
-    - --readme
-    - --repo-name=dotfiles
-    - --ruff
-    id: nitpick
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v6.0.0
-  hooks:
-  - id: check-executables-have-shebangs
-  - id: check-merge-conflict
-  - id: check-symlinks
-  - id: destroyed-symlinks
-  - id: detect-private-key
-  - id: end-of-file-fixer
-  - id: mixed-line-ending
-    args:
-    - --fix=lf
-  - id: no-commit-to-branch
-  - id: pretty-format-json
-    args:
-    - --autofix
-  - id: trailing-whitespace
-- repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.14.10
-  hooks:
-  - id: ruff-check
-    args:
-    - --fix
-  - id: ruff-format
-- repo: https://github.com/compwa/taplo-pre-commit
-  rev: v0.9.3
-  hooks:
-  - id: taplo-format
-    args:
-    - --option
-    - indent_tables=true
-    - --option
-    - indent_entries=true
-    - --option
-    - reorder_keys=true
-- repo: https://github.com/astral-sh/uv-pre-commit
-  rev: 0.9.21
-  hooks:
-  - id: uv-lock
-    args:
-    - --upgrade
+  - repo: https://github.com/dycw/pre-commit-hook-nitpick
+    rev: 0.7.9
+    hooks:
+      - args:
+          - --description=My dotfiles
+          - --github--pull-request--pre-commit
+          - --github--pull-request--pyright
+          - --github--pull-request--pytest--os--macos
+          - --github--pull-request--pytest--os--ubuntu
+          - --github--pull-request--pytest--python-version--default
+          - --github--pull-request--pytest--resolution--highest
+          - --github--pull-request--ruff
+          - --github--push--tag
+          - --package-name=dotfiles
+          - --pre-commit--prettier
+          - --pre-commit--ruff
+          - --pre-commit--taplo
+          - --pre-commit--uv
+          - --pyproject
+          - --pyright
+          - --pytest
+          - --python-package-name=dotfiles
+          - --readme
+          - --repo-name=dotfiles
+          - --ruff
+        id: nitpick
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: destroyed-symlinks
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args:
+          - --fix=lf
+      - id: no-commit-to-branch
+      - id: pretty-format-json
+        args:
+          - --autofix
+      - id: trailing-whitespace
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.10
+    hooks:
+      - id: ruff-check
+        args:
+          - --fix
+      - id: ruff-format
+  - repo: https://github.com/compwa/taplo-pre-commit
+    rev: v0.9.3
+    hooks:
+      - id: taplo-format
+        args:
+          - --option
+          - indent_tables=true
+          - --option
+          - indent_entries=true
+          - --option
+          - reorder_keys=true
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.9.21
+    hooks:
+      - id: uv-lock
+        args:
+          - --upgrade
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        entry: npx prettier --write
+        language: system
+        types_or:
+          - markdown
+          - yaml

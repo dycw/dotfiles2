@@ -9,7 +9,7 @@
   authors = [{ email = "d.wan@icloud.com", name = "Derek Wan" }]
   dependencies = []
   description = "My dotfiles"
-  name = "--pre-commit--prettier"
+  name = "dotfiles"
   readme = "README.md"
   requires-python = ">= 3.14"
   version = "0.1.1"
