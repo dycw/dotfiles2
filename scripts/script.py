@@ -14,7 +14,8 @@ from logging import getLogger
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from click import command, group, option
+import click
+from click import group, option
 from utilities.click import CONTEXT_SETTINGS
 from utilities.logging import basic_config
 from utilities.shutil import which
@@ -32,7 +33,19 @@ if TYPE_CHECKING:
 
 basic_config(obj=__name__)
 _LOGGER = getLogger(__name__)
-_CLONE_LOCATION = Path.home() / "dotfiles-wip"
+
+
+# CLI
+
+
+_PATH_DEFAULT = Path.home() / "dotfiles"
+_PATH_OPTION = option(
+    "--path",
+    type=click.Path(path_type=Path),
+    default=_PATH_DEFAULT,
+    help="Path to clone to",
+)
+_BRANCH_OPTION = option("--branch", type=str, default=None, help="Branch to use")
 
 
 @group(**CONTEXT_SETTINGS)
@@ -40,13 +53,17 @@ def _main() -> None: ...
 
 
 @_main.command(name="dw-swift", **CONTEXT_SETTINGS)
-@option("--branch", type=str, default=None, help="Branch to run")
-def dw_swift_sub_cmd(*, branch: str | None = None) -> None:
+@_PATH_OPTION
+@_BRANCH_OPTION
+def dw_swift_sub_cmd(*, path: Path = _PATH_DEFAULT, branch: str | None = None) -> None:
     _LOGGER.info("Running 'DW-Swift' installer...")
     _install_curl()
     _install_git()
-    _clone_repo(branch=branch)
+    _run_git_clone(path, branch=branch)
     _LOGGER.info("Finished running 'DW-Swift' installer")
+
+
+# utilities
 
 
 def _install_curl() -> None:
@@ -67,17 +84,18 @@ def _install_git() -> None:
     _LOGGER.info("Finished installing 'git'")
 
 
-def _clone_repo(path: PathLike, /, *, branch: str | None = None) -> None:
-    if _CLONE_LOCATION.is_dir():
-        _LOGGER.info("Repo is already cloned to '%s'", _CLONE_LOCATION)
-        _checkout_branch(_CLONE_LOCATION, branch=branch)
+def _run_git_clone(path: PathLike, /, *, branch: str | None = None) -> None:
+    path = Path(path)
+    if path.is_dir():
+        _LOGGER.info("Repo is already cloned to '%s'", path)
+        _run_git_checkout(path, branch=branch)
         return
-    _LOGGER.info("Cloning to '%s'...", _CLONE_LOCATION)
-    git_clone("git@github.com:dycw/dotfiles2.git", _CLONE_LOCATION, branch=branch)
-    _LOGGER.info("Finished cloning to '%s'", _CLONE_LOCATION)
+    _LOGGER.info("Cloning to '%s'...", path)
+    git_clone("git@github.com:dycw/dotfiles2.git", path, branch=branch)
+    _LOGGER.info("Finished cloning to '%s'", path)
 
 
-def _checkout_branch(path: PathLike, /, *, branch: str | None = None) -> None:
+def _run_git_checkout(path: PathLike, /, *, branch: str | None = None) -> None:
     if branch is None:
         return
     current = git_branch_current(path)

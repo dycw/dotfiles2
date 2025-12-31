@@ -3,14 +3,20 @@
 # echo
 echo_date() { echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*" >&2; }
 
+# defaults and usage
+
+HOSTNAME_USE="$(hostname)"
+PATH_USE="${HOME}/dotfiles"
+
 echo_usage() {
     cat >&2 <<EOF
-Usage: $0 [--branch <name>]
+Usage: $0 [--hostname <str>] [--path <path>] [--branch <str>]
 
 Options:
-  --path <dir>     Dotfiles root path (default: ~/dotfiles)
-  --branch <name>  Use the specified branch
-  -h, --help       Show this help and exit
+  --hostname <str>  Hostname to use (default: ${HOSTNAME_USE})
+  --path <path>     Path to clone to (default: ${PATH_USE})
+  --branch <str>    Branch to use
+  -h, --help        Show this help and exit
 EOF
 }
 
