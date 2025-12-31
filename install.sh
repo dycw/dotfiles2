@@ -67,8 +67,9 @@ case "${HOSTNAME_USE}" in
 DW-Swift | RH-MacBook)
     echo_date "Running installer for '${HOSTNAME_USE}'..."
     ./scripts/setup-uv.sh
+    HOSTNAME_LOWER=$(printf '%s' "${HOSTNAME_USE}" | tr '[:upper:]' '[:lower:]')
     PATH="${LOCAL_BIN}${PATH:+:${PATH}}" ./scripts/script.py \
-        "${HOSTNAME_USE}" \
+        "${HOSTNAME_LOWER}" \
         ${PATH_USE:+--path "${PATH_USE}"} \
         ${BRANCH:+--branch "${BRANCH}"}
     echo_date "Finished running installer for '${HOSTNAME_USE}'..."
