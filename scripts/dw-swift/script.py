@@ -19,6 +19,7 @@ from utilities.click import CONTEXT_SETTINGS
 from utilities.logging import basic_config
 from utilities.subprocess import apt_install_cmd, git_clone_cmd, run, sudo_cmd
 
+basic_config(obj=__name__)
 _LOGGER = getLogger(__name__)
 _CLONE_LOCATION = Path.home() / "dotfiles-wip"
 
@@ -42,7 +43,7 @@ def _install_git() -> None:
 
 def _clone_repo() -> None:
     if _CLONE_LOCATION.is_dir():
-        _LOGGER.info("Repo already cloned to '%s'", _CLONE_LOCATION)
+        _LOGGER.info("Repo is already cloned to '%s'", _CLONE_LOCATION)
         return
     _LOGGER.info("Cloning to '%s'...", _CLONE_LOCATION)
     run(*git_clone_cmd("git@github.com:dycw/dotfiles2.git", _CLONE_LOCATION))
