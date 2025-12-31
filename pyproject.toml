@@ -1,0 +1,19 @@
+[build-system]
+  build-backend = "uv_build"
+  requires = ["uv_build"]
+
+[dependency-groups]
+  dev = ["dycw-utilities[test]", "pyright", "rich"]
+
+[project]
+  authors = [{ email = "d.wan@icloud.com", name = "Derek Wan" }]
+  dependencies = []
+  description = "My dotfiles"
+  name = "--pre-commit--prettier"
+  readme = "README.md"
+  requires-python = ">= 3.14"
+  version = "0.1.1"
+
+[tool.uv.build-backend]
+  module-name = "dotfiles"
+  module-root = "src"

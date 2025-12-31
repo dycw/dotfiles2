@@ -1,0 +1,15 @@
+[pytest]
+  addopts = [
+    "-ra",
+    "-vv",
+    "--color=auto",
+    "--durations=10",
+    "--durations-min=10",
+  ]
+  collect_imported_tests = false
+  empty_parameter_set_mark = "fail_at_collect"
+  filterwarnings = ["error"]
+  minversion = "9.0"
+  strict = true
+  testpaths = ["src/tests"]
+  xfail_strict = true

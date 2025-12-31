@@ -1,3 +1,3 @@
-# `template`
+# `dotfiles`
 
-Template for generic repositories
+My dotfiles

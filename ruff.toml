@@ -1,0 +1,60 @@
+target-version = "py314"
+unsafe-fixes = true
+
+[format]
+  preview = true
+  skip-magic-trailing-comma = true
+
+[lint]
+  explicit-preview-rules = true
+  fixable = ["ALL"]
+  ignore = [
+    "ANN401",
+    "ASYNC109",
+    "C901",
+    "CPY",
+    "D",
+    "E501",
+    "PD",
+    "PERF203",
+    "PLC0415",
+    "PLE1205",
+    "PLR0904",
+    "PLR0911",
+    "PLR0912",
+    "PLR0913",
+    "PLR0915",
+    "PLR2004",
+    "PT012",
+    "PT013",
+    "PYI041",
+    "S202",
+    "S310",
+    "S311",
+    "S602",
+    "S603",
+    "S607",
+    "W191",
+    "E111",
+    "E114",
+    "E117",
+    "COM812",
+    "COM819",
+    "ISC001",
+    "ISC002",
+  ]
+  preview = true
+  select = ["ALL", "RUF022", "RUF029"]
+
+  [lint.extend-per-file-ignores]
+    "test_*.py" = ["S101", "SLF001"]
+
+  [lint.flake8-bugbear]
+    extend-immutable-calls = ["typing.cast"]
+
+  [lint.flake8-tidy-imports]
+    ban-relative-imports = "all"
+
+  [lint.isort]
+    required-imports = ["from __future__ import annotations"]
+    split-on-trailing-comma = false

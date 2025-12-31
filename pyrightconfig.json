@@ -1,0 +1,29 @@
+{
+  "deprecateTypingAliases": true,
+  "enableReachabilityAnalysis": false,
+  "include": [
+    "src"
+  ],
+  "pythonVersion": "3.14",
+  "reportCallInDefaultInitializer": true,
+  "reportImplicitOverride": true,
+  "reportImplicitStringConcatenation": true,
+  "reportImportCycles": true,
+  "reportMissingSuperCall": true,
+  "reportMissingTypeArgument": false,
+  "reportMissingTypeStubs": false,
+  "reportPrivateImportUsage": false,
+  "reportPrivateUsage": false,
+  "reportPropertyTypeMismatch": true,
+  "reportUninitializedInstanceVariable": true,
+  "reportUnknownArgumentType": false,
+  "reportUnknownMemberType": false,
+  "reportUnknownParameterType": false,
+  "reportUnknownVariableType": false,
+  "reportUnnecessaryComparison": false,
+  "reportUnnecessaryTypeIgnoreComment": true,
+  "reportUnusedCallResult": true,
+  "reportUnusedImport": false,
+  "reportUnusedVariable": false,
+  "typeCheckingMode": "strict"
+}
