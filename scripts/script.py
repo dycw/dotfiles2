@@ -103,6 +103,8 @@ def _run_git_checkout(path: PathLike, /, *, branch: str | None = None) -> None:
         _LOGGER.info("Branch '%s' is already checked out", branch)
         return
     _LOGGER.info("Checking out '%s'...", branch)
+    breakpoint()
+
     git_checkout(branch, path)
 
 
