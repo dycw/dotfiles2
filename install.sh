@@ -3,6 +3,16 @@
 # echo
 echo_date() { echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*" >&2; }
 
+echo_usage() {
+    cat >&2 <<EOF
+Usage: $0 [--branch <name>]
+
+Options:
+  --branch <name>   Use the specified branch
+  -h, --help        Show this help and exit
+EOF
+}
+
 # parse arguments
 BRANCH=""
 while [ "$#" -gt 0 ]; do
@@ -14,11 +24,14 @@ while [ "$#" -gt 0 ]; do
         fi
         BRANCH="$1"
         ;;
-    --*)
-        echo_date "Unknown option: $1" && exit 1
+    -h | --help)
+        echo_usage
+        exit 0
         ;;
     *)
-        echo_date "Unexpected argument: $1" && exit 1
+        echo_date "Unknown argument: $1"
+        echo_usage
+        entry 2
         ;;
     esac
     shift
