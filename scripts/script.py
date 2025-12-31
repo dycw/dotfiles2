@@ -3,8 +3,7 @@
 # requires-python = ">=3.14"
 # dependencies = [
 #   "click >=8.3.1, <8.4",
-#   "dycw-utilities >=0.174.19, <0.175",
-#   "typed-settings[attrs, click] >=25.3.0, <25.4",
+#   "dycw-utilities >=0.174.20, <0.175",
 # ]
 # ///
 
@@ -61,6 +60,17 @@ def dw_swift_sub_cmd(*, path: Path = _PATH_DEFAULT, branch: str | None = None) -
     _install_git()
     _run_git_clone(path, branch=branch)
     _LOGGER.info("Finished running 'DW-Swift' installer")
+
+
+@_main.command(name="rh-macbook", **CONTEXT_SETTINGS)
+@_PATH_OPTION
+@_BRANCH_OPTION
+def rh_macbook_sub_cmd(
+    *, path: Path = _PATH_DEFAULT, branch: str | None = None
+) -> None:
+    _LOGGER.info("Running 'RH-MacBook' installer...")
+    _run_git_clone(path, branch=branch)
+    _LOGGER.info("Finished running 'RH-MacBook' installer")
 
 
 # utilities

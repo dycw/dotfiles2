@@ -7,7 +7,7 @@
 
 [project]
   authors = [{ email = "d.wan@icloud.com", name = "Derek Wan" }]
-  dependencies = ["dycw-utilities >=0.174.20, < 0.175"]
+  dependencies = ["click >=8.3.1, <8.4", "dycw-utilities >=0.174.20, < 0.175"]
   description = "My dotfiles"
   name = "dotfiles"
   readme = "README.md"
