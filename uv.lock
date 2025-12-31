@@ -98,6 +98,9 @@ wheels = [
 name = "dotfiles"
 version = "0.1.1"
 source = { editable = "." }
+dependencies = [
+    { name = "dycw-utilities" },
+]
 
 [package.dev-dependencies]
 dev = [
@@ -107,6 +110,7 @@ dev = [
 ]
 
 [package.metadata]
+requires-dist = [{ name = "dycw-utilities", specifier = ">=0.174.20,<0.175" }]
 
 [package.metadata.requires-dev]
 dev = [
