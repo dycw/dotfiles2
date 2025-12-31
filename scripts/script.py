@@ -14,7 +14,7 @@ from logging import getLogger
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from click import command, option
+from click import command, group, option
 from utilities.click import CONTEXT_SETTINGS
 from utilities.logging import basic_config
 from utilities.shutil import which
@@ -35,9 +35,13 @@ _LOGGER = getLogger(__name__)
 _CLONE_LOCATION = Path.home() / "dotfiles-wip"
 
 
-@command(**CONTEXT_SETTINGS)
+@group(**CONTEXT_SETTINGS)
+def _main() -> None: ...
+
+
+@_main.command(name="dw-swift", **CONTEXT_SETTINGS)
 @option("--branch", type=str, default=None, help="Branch to run")
-def _main(*, branch: str | None = None) -> None:
+def dw_swift_sub_cmd(*, branch: str | None = None) -> None:
     _LOGGER.info("Running 'DW-Swift' installer...")
     _install_curl()
     _install_git()
