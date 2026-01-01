@@ -1,6 +1,6 @@
 #!/usr/bin/env -S uv run --script
 # /// script
-# requires-python = ">=3.14"
+# requires-python = ">=3.12"
 # dependencies = [
 #   "click >=8.3.1, <8.4",
 #   "dycw-utilities >=0.174.20, <0.175",
@@ -25,6 +25,7 @@ from utilities.subprocess import (
     git_clone,
     run,
     sudo_cmd,
+    uv_run_cmd,
 )
 
 if TYPE_CHECKING:
@@ -59,6 +60,7 @@ def dw_swift_sub_cmd(*, path: Path = _PATH_DEFAULT, branch: str | None = None) -
     _install_curl()
     _install_git()
     _run_git_clone(path, branch=branch)
+    run(*uv_run_cmd("dotfiles.dw_swift"), cwd=path)
     _LOGGER.info("Finished running 'DW-Swift' installer")
 
 
@@ -70,6 +72,7 @@ def rh_macbook_sub_cmd(
 ) -> None:
     _LOGGER.info("Running 'RH-MacBook' installer...")
     _run_git_clone(path, branch=branch)
+    run(*uv_run_cmd("dotfiles.rh_macbook"), cwd=path)
     _LOGGER.info("Finished running 'RH-MacBook' installer")
 
 

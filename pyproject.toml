@@ -7,11 +7,11 @@
 
 [project]
   authors = [{ email = "d.wan@icloud.com", name = "Derek Wan" }]
-  dependencies = ["click >=8.3.1, <8.4", "dycw-utilities >=0.174.20, < 0.175"]
+  dependencies = ["click >=8.3.1, <8.4", "dycw-utilities >=0.175.9, <0.176"]
   description = "My dotfiles"
   name = "dotfiles"
   readme = "README.md"
-  requires-python = ">= 3.14"
+  requires-python = ">= 3.12"
   version = "0.1.1"
 
 [tool.uv.build-backend]

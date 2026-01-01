@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/dycw/pre-commit-hook-nitpick
-    rev: 0.7.9
+    rev: 0.8.0
     hooks:
       - args:
           - --description=My dotfiles
@@ -21,6 +21,7 @@ repos:
           - --pyright
           - --pytest
           - --python-package-name=dotfiles
+          - --python-version=3.12
           - --readme
           - --repo-name=dotfiles
           - --ruff

@@ -45,6 +45,7 @@ jobs:
           - ubuntu-latest
         python-version:
           - "3.14"
+          - "3.12"
         resolution:
           - highest
   ruff:

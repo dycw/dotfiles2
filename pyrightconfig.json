@@ -4,7 +4,7 @@
   "include": [
     "src"
   ],
-  "pythonVersion": "3.14",
+  "pythonVersion": "3.12",
   "reportCallInDefaultInitializer": true,
   "reportImplicitOverride": true,
   "reportImplicitStringConcatenation": true,
