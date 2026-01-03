@@ -1,19 +1,15 @@
 from __future__ import annotations
 
-from logging import getLogger
-
 from click import command
 from utilities.click import CONTEXT_SETTINGS
-from utilities.logging import basic_config
 
-basic_config(obj=__name__)
-_LOGGER = getLogger(__name__)
+from dotfiles.logging import LOGGER
 
 
 @command(**CONTEXT_SETTINGS)
 def _main() -> None:
-    _LOGGER.info("Running 'DW-Swift' installer...")
-    _LOGGER.info("Finished running 'DW-Swift' installer")
+    LOGGER.info("Running 'DW-Swift' installer...")
+    LOGGER.info("Finished running 'DW-Swift' installer")
 
 
 if __name__ == "__main__":

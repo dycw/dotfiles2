@@ -1,9 +1,11 @@
 repos:
-  - repo: https://github.com/dycw/pre-commit-hook-nitpick
-    rev: 0.8.0
+  - repo: https://github.com/dycw/conformalize
+    rev: 0.10.10
     hooks:
       - args:
           - --description=My dotfiles
+          - --envrc
+          - --envrc--uv
           - --github--pull-request--pre-commit
           - --github--pull-request--pyright
           - --github--pull-request--pytest--os--macos
@@ -13,6 +15,7 @@ repos:
           - --github--pull-request--ruff
           - --github--push--tag
           - --package-name=dotfiles
+          - --pre-commit--dycw
           - --pre-commit--prettier
           - --pre-commit--ruff
           - --pre-commit--taplo
@@ -25,7 +28,7 @@ repos:
           - --readme
           - --repo-name=dotfiles
           - --ruff
-        id: nitpick
+        id: conformalize
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -43,6 +46,20 @@ repos:
         args:
           - --autofix
       - id: trailing-whitespace
+  - repo: https://github.com/dycw/actions
+    rev: 0.3.31
+    hooks:
+      - id: format-requirements
+      - id: replace-sequence-strs
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        entry: npx prettier --write
+        language: system
+        types_or:
+          - markdown
+          - yaml
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.14.10
     hooks:
@@ -67,12 +84,7 @@ repos:
       - id: uv-lock
         args:
           - --upgrade
-  - repo: local
-    hooks:
-      - id: prettier
-        name: prettier
-        entry: npx prettier --write
-        language: system
-        types_or:
-          - markdown
-          - yaml
+          - --resolution
+          - highest
+          - --prerelease
+          - disallow
