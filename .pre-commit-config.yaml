@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/dycw/conformalize
-    rev: 0.12.0
+    rev: 0.12.2
     hooks:
       - args:
           - --description=My dotfiles
@@ -8,9 +8,9 @@ repos:
           - --envrc--uv
           - --github--pull-request--pre-commit
           - --github--pull-request--pyright
+          - --github--pull-request--pytest--all-versions
           - --github--pull-request--pytest--os--macos
           - --github--pull-request--pytest--os--ubuntu
-          - --github--pull-request--pytest--python-version--default
           - --github--pull-request--pytest--resolution--highest
           - --github--pull-request--ruff
           - --github--push--tag
@@ -47,7 +47,7 @@ repos:
           - --autofix
       - id: trailing-whitespace
   - repo: https://github.com/dycw/actions
-    rev: 0.3.31
+    rev: 0.3.32
     hooks:
       - id: format-requirements
       - id: replace-sequence-strs

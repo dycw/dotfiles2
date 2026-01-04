@@ -1,0 +1,14 @@
+name: push
+on:
+  push:
+    branches:
+    - master
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Tag latest commit
+      uses: dycw/action-tag@latest
+      with:
+        token-checkout: ${{secrets.GITHUB_TOKEN}}
+        token-uv: ${{secrets.GITHUB_TOKEN}}

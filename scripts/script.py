@@ -1,4 +1,4 @@
-#!/usr/bin/env -S uv run --script
+#!/usr/bin/env -S uv run --script --prerelease=disallow
 # /// script
 # requires-python = ">=3.12"
 # dependencies = [
