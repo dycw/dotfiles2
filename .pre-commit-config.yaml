@@ -1,22 +1,22 @@
 repos:
-  - repo: https://github.com/dycw/conformalize
-    rev: 0.12.2
+  - repo: https://github.com/dycw/actions
+    rev: 0.10.4
     hooks:
-      - args:
+      - id: conformalize-repo
+        args:
+          - --ci--pull-request--pre-commit
+          - --ci--pull-request--pyright
+          - --ci--pull-request--pytest--all-versions
+          - --ci--pull-request--pytest--macos
+          - --ci--pull-request--pytest--ubuntu
+          - --ci--pull-request--ruff
+          - --ci--push--tag
           - --description=My dotfiles
           - --envrc
           - --envrc--uv
-          - --github--pull-request--pre-commit
-          - --github--pull-request--pyright
-          - --github--pull-request--pytest--all-versions
-          - --github--pull-request--pytest--os--macos
-          - --github--pull-request--pytest--os--ubuntu
-          - --github--pull-request--pytest--resolution--highest
-          - --github--pull-request--ruff
-          - --github--push--tag
           - --package-name=dotfiles
-          - --pre-commit--dycw
           - --pre-commit--prettier
+          - --pre-commit--python
           - --pre-commit--ruff
           - --pre-commit--taplo
           - --pre-commit--uv
@@ -28,7 +28,11 @@ repos:
           - --readme
           - --repo-name=dotfiles
           - --ruff
-        id: conformalize
+      - id: format-requirements
+      - id: replace-sequence-strs
+      - id: touch-empty-py
+      - id: touch-py-typed
+      - id: update-requirements
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -46,11 +50,6 @@ repos:
         args:
           - --autofix
       - id: trailing-whitespace
-  - repo: https://github.com/dycw/actions
-    rev: 0.3.32
-    hooks:
-      - id: format-requirements
-      - id: replace-sequence-strs
   - repo: local
     hooks:
       - id: prettier
@@ -61,7 +60,7 @@ repos:
           - markdown
           - yaml
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.10
+    rev: v0.14.11
     hooks:
       - id: ruff-check
         args:
@@ -79,7 +78,7 @@ repos:
           - --option
           - reorder_keys=true
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.9.21
+    rev: 0.9.22
     hooks:
       - id: uv-lock
         args:
