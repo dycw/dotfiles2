@@ -52,13 +52,10 @@ uvx --from dycw-installer[cli]@latest set-up-neovim
 git clone --recurse-submodules https://github.com/queensberry-research/neovim.git ~/.config/nvim
 nvim --headless +Lazy! sync +qa
 
-
-
-
 su - derek <<'EOF'
 curl -LsSf https://astral.sh/uv/install.sh | sh
 git clone --recurse-submodules https://github.com/queensberry-research/neovim.git ~/.config/nvim
-echo uv
+nvim --headless +Lazy! sync +qa
 EOF
 ```
 
