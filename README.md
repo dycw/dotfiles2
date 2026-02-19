@@ -32,21 +32,25 @@ apt autoremove -y
 apt clean
 usermod -aG sudo derek
 
-bashrc_sh=/etc/profile.d/bashrc.sh
-lines=$(cat <<'EOF'
+BASHRC_SH=/etc/profile.d/bashrc.sh
+LINES=$(cat <<'EOF'
 eval "$(direnv hook bash)"
 eval "$(fzf --bash)"
 eval "$(starship init bash)"
 eval "$(zoxide init --cmd j bash)"
 EOF
 )
-touch ${bashrc_sh}
-while IFS= read -r line; do
-    grep -qxF "${line}" "${bashrc_sh}" || echo "${line}" >> "${bashrc_sh}"
-done <<< "$lines"
+touch ${BASHRC_SH}
+while IFS= read -r LINE; do
+    grep -qxF "${LINE}" "${BASHRC_SH}" || echo "${LINE}" >> "${BASHRC_SH}"
+done <<< "${LINES}"
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
-source $HOME/.local/bin/env
+source ${HOME}/.local/bin/env
+SSH_KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBGOo3yytWfRyOhsWIg4wR/s6wbxWM+MIWLV0EnlkJK'
+uvx --from dycw-installer[cli]@latest set-up-keys ${SSH_KEY}
+uvx --from dycw-installer[cli]@latest set-up-ssh
+uvx --from dycw-installer[cli]@latest set-up-sshd --permit-root-login
 uvx --from dycw-installer[cli]@latest set-up-neovim
 
 git clone --recurse-submodules https://github.com/queensberry-research/neovim.git ~/.config/nvim
@@ -54,6 +58,10 @@ nvim --headless +Lazy! sync +qa
 
 su - derek <<'EOF'
 curl -LsSf https://astral.sh/uv/install.sh | sh
+source ${HOME}/.local/bin/env
+SSH_KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBGOo3yytWfRyOhsWIg4wR/s6wbxWM+MIWLV0EnlkJK'
+uvx --from dycw-installer[cli]@latest set-up-keys ${SSH_KEY}
+uvx --from dycw-installer[cli]@latest set-up-ssh
 git clone --recurse-submodules https://github.com/queensberry-research/neovim.git ~/.config/nvim
 EOF
 ```
