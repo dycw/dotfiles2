@@ -26,7 +26,8 @@ rm -rf /var/lib/apt/lists/*
 apt update
 apt full-upgrade -y
 apt autoremove -y
-apt install -y btm build-essential curl git ripgrep rsync sd sudo
+apt install -y age bat btm build-essential curl du-dust eza fd-find git \
+    git-delta jq just restic ripgrep rsync sd shellcheck shfmt sudo yq
 apt clean
 usermod -aG sudo derek
 
