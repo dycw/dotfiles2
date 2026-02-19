@@ -25,18 +25,29 @@ EOF
 rm -rf /var/lib/apt/lists/*
 apt update
 apt full-upgrade -y
+apt install -y age bat btm build-essential curl direnv du-dust eza fd-find \
+    fzf git git-delta jq just restic ripgrep rsync sd shellcheck shfmt starship \
+    sudo yq zoxide
 apt autoremove -y
-apt install -y age bat btm build-essential curl du-dust eza fd-find git \
-    git-delta jq just restic ripgrep rsync sd shellcheck shfmt sudo yq
 apt clean
 usermod -aG sudo derek
 
+bashrc_sh=/etc/profile.d/bashrc.sh
+lines=$(cat <<'EOF'
+eval "$(direnv hook bash)"
+eval "$(fzf --bash)"
+eval "$(starship init bash)"
+eval "$(zoxide init --cmd j bash)"
+EOF
+)
+touch ${bashrc_sh}
+while IFS= read -r line; do
+    grep -qxF "${line}" "${bashrc_sh}" || echo "${line}" >> "${bashrc_sh}"
+done <<< "$lines"
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
 source $HOME/.local/bin/env
-for cmd in direnv fzf starship zoxide; do
-    uvx --from dycw-installer[cli]@latest set-up-${cmd} --etc
-done
+uvx --from dycw-installer[cli]@latest set-up-neovim
 
 git clone --recurse-submodules https://github.com/queensberry-research/neovim.git ~/.config/nvim
 nvim --headless +Lazy! sync +qa
