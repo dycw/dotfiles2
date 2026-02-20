@@ -1,6 +1,14 @@
 #!/usr/bin/env fish
 
-if not status is-interactive; or not type -q ghostty
+#### local (interactive & non-interactive) ####################################
+
+if test -d $HOME/.local/bin
+    fish_add_path $HOME/.local/bin
+end
+
+#### interactive only #########################################################
+
+if not status is-interactive
     exit
 end
 
@@ -18,12 +26,6 @@ else if type -q vi
 else if type -q nano
     set -gx EDITOR nano
     set -gx VISUAL nano
-end
-
-#### local ####################################################################
-
-if test -d $HOME/.local/bin
-    fish_add_path $HOME/.local/bin
 end
 
 #### path dotfiles ############################################################
