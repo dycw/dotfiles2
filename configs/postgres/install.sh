@@ -4,7 +4,7 @@ set -eu
 
 ###############################################################################
 
-if command -v redis-cli >/dev/null 2>&1; then
+if command -v pg_isready-18 >/dev/null 2>&1; then
 	echo "[$(date '+%Y-%m-%d %H:%M:%S')] 'postgres' is already installed"
 	exit
 fi
