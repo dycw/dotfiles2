@@ -1,11 +1,11 @@
 #!/usr/bin/env fish
 
-if not status is-interactive; or not type -q btm
+if not status is-interactive; or not type -q ruff
     exit
 end
 
 ###############################################################################
 
-function bottom-toml
-    "$EDITOR" "$HOME/.config/bottom/bottom.toml"
+function rw
+    ruff check -w $argv
 end

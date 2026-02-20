@@ -1,4 +1,15 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
+
+if [ -z "${PS1-}" ] || ! command -v starship >/dev/null 2>&1; then
+	exit
+fi
+
+###############################################################################
 
 export STARSHIP_CONFIG='/etc/starship.toml'
-eval "$(starship init bash)"
+
+if [ -n "${BASH_VERSION-}" ]; then
+	eval "$(starship init bash)"
+elif [ -n "${ZSH_VERSION-}" ]; then
+	eval "$(starship init zsh)"
+fi

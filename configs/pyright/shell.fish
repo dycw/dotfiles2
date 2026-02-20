@@ -10,10 +10,6 @@ function pyr
     __pyright $argv
 end
 
-function pyrightconfig
-    __edit_ancestor pyrightconfig.json
-end
-
 if type -q watchexec
     function wpyr
         set -l cmd "cd $(pwd); pyright"

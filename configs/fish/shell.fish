@@ -241,8 +241,89 @@ function ping-ts
     end
 end
 
-#### lsof #####################################################################
-#### lsof #####################################################################
+#### rm #######################################################################
+
+function rm
+    if contains -- .git $argv
+        read -P "Are you sure you want to remove '.git'? (y/N) " reply
+        switch $reply
+            case y Y
+                # continue
+            case '*'
+                echo "Exiting..." >&2; and return 1
+                return 1
+        end
+    end
+    command rm -frv $argv
+end
+
+function unlink
+    for arg in $argv
+        command unlink $arg
+    end
+end
+
+#### ssh ######################################################################
+
+function add-known-host
+    if test (count $argv) -eq 0
+        echo "'add-known-host' expected [1..2] arguments HOST PORT; got $(count $argv)" >&2; and return 1
+    end
+    set -l host $argv[1]
+    if test (count $argv) -ge 2
+        set -l port $argv[2]
+        ssh-keygen -R "[$host]:$port"
+        ssh-keyscan -p $port $host >>~/.ssh/known_hosts
+    else
+        ssh-keygen -R $host
+        ssh-keyscan $host >>~/.ssh/known_hosts
+    end
+end
+
+function authorized-keys
+    $EDITOR $HOME/.ssh/authorized_keys
+end
+
+function generate-ssh-key
+    argparse f/filename= -- $argv; or return $status
+    set -l filename_use
+    if test -n "$_flag_filename"
+        set filename_use $_flag_filename
+    else
+        set filename_use id_ed25519
+    end
+    ssh-keygen -C '' -f $filename_use -P '' -t ed25519 $args
+end
+
+function known-hosts
+    $EDITOR $HOME/.ssh/known_hosts
+end
+
+function ssh-config
+    $EDITOR $HOME/.ssh/config
+end
+
+function ssh-auto
+    if test (count $argv) -lt 1
+        echo "'ssh-auto' expected [1..] arguments DESTINATION; got $(count $argv)" >&2; and return 1
+    end
+    set -l destination $argv[1]
+    if not __ssh_strict $destination
+        set -l parts (string split -m1 @ $destination)
+        set -l host $parts[2]
+        ssh-keygen -R $host
+        ssh-keyscan -q -t ed25519 $host >>~/.ssh/known_hosts
+        __ssh_strict $destination
+    end
+end
+
+function __ssh_strict
+    if test (count $argv) -lt 1
+        echo "'__ssh_strict' expected [1..] arguments DESTINATION; got $(count $argv)" >&2; and return 1
+    end
+    ssh -o HostKeyAlgorithms=ssh-ed25519 -o StrictHostKeyChecking=yes $argv
+end
+
 #### lsof #####################################################################
 #### lsof #####################################################################
 #### lsof #####################################################################
