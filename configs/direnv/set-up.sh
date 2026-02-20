@@ -18,11 +18,4 @@ link "${SCRIPT_DIR}/direnv.toml" "${XDG_CONFIG_HOME:-/.config}/direnv/direnv.tom
 link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-/.config}/fish/conf.d/direnv.fish"
 link "${SCRIPT_DIR}/shell.sh" "${XDG_CONFIG_HOME:-/.config}/posix/direnv.sh"
 
-link_home "${HOME}"
-if [ -d /home ]; then
-	for dir in /home/*; do
-		link_home "${dir}"
-	done
-fi
-
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'direnv'"
