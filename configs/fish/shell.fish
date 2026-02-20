@@ -4,7 +4,7 @@ if not status is-interactive
     exit
 end
 
-# cd
+#### cd #######################################################################
 
 function ..
     cd ..
@@ -58,7 +58,7 @@ function cdw
     cd $dir
 end
 
-# chmod
+#### chmod ####################################################################
 
 function chmod-files
     if test (count $argv) -lt 1
@@ -73,7 +73,7 @@ function chmod-dirs
     find . -type d -print0 | xargs -0 chmod $argv[1]
 end
 
-# chown
+#### chown ####################################################################
 
 function chown-files
     if test (count $argv) -lt 1
@@ -89,7 +89,7 @@ function chown-dirs
     find . -type d -exec chown $argv[1] {} \;
 end
 
-# cp
+#### cp #######################################################################
 
 function cp
     if test (count $argv) -lt 2
@@ -106,7 +106,7 @@ function cp
     command cp -frv $argv
 end
 
-# env
+#### env ######################################################################
 
 function eg
     if test (count $argv) -lt 1
@@ -115,7 +115,7 @@ function eg
     env | sort | grep -i $argv
 end
 
-# fish
+#### fish #####################################################################
 
 fish_vi_key_bindings
 
@@ -135,5 +135,17 @@ function fish-reload
     if set -q INFRA_FISH_CONFIG; and test -f $INFRA_FISH_CONFIG
         echo "Reloading $INFRA_FISH_CONFIG..."
         source $INFRA_FISH_CONFIG
+    end
+end
+
+#### git ######################################################################
+
+function yield-git-repos
+    set -l dir $argv[-1]
+    for dir in */
+        if test -d "$dir/.git"
+            set abs (realpath "$dir")
+            echo $abs
+        end
     end
 end
