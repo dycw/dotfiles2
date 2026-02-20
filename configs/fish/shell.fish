@@ -324,7 +324,20 @@ function __ssh_strict
     ssh -o HostKeyAlgorithms=ssh-ed25519 -o StrictHostKeyChecking=yes $argv
 end
 
-#### lsof #####################################################################
-#### lsof #####################################################################
+#### tail #####################################################################
+
+function tf
+    tail -F --verbose $argv
+end
+
+#### touch ####################################################################
+
+function touch
+    for file in $argv
+        mkdir -p (dirname $file); or exit $status
+        command touch $file; or exit $status
+    end
+end
+
 #### lsof #####################################################################
 #### lsof #####################################################################
