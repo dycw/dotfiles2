@@ -1,0 +1,127 @@
+# -- session creation ---------------------------------------------------------
+tmux_conf_new_session_retain_current_path=false
+
+# -- windows & pane creation --------------------------------------------------
+tmux_conf_new_window_retain_current_path=false
+tmux_conf_new_window_reconnect_ssh=false
+tmux_conf_new_pane_retain_current_path=true
+tmux_conf_new_pane_reconnect_ssh=true
+
+# -- display ------------------------------------------------------------------
+tmux_conf_24b_colour=true
+
+# -- clipboard ----------------------------------------------------------------
+tmux_conf_copy_to_os_clipboard=true
+
+# -- user customizations ------------------------------------------------------
+# history size
+set -g history-limit 50000
+
+# main pane size
+set -g main-pane-height 67%
+set -g main-pane-width 67%
+
+# mouse mode
+set -g mouse on
+
+# prefix
+set -gu prefix2
+unbind-key C-a
+unbind-key C-b
+set -g prefix `
+bind-key ` send-prefix
+
+# repeat time
+set -g repeat-time 200
+
+# vi mode
+set -g status-keys vi
+set -g mode-keys vi
+
+# -- tpm ----------------------------------------------------------------------
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+# -- own customizations -------------------------------------------------------
+# copy mode
+unbind-key [
+unbind-key ]
+bind-key v copy-mode
+bind-key p paste-buffer
+
+# default command/shell
+set -g default-command "$SHELL"
+set -g default-shell "$SHELL"
+
+# history
+bind-key H command-prompt -p 'save history to filename:' -I '~/tmux-history.txt' 'capture-pane -S -32768 ; save-buffer %1 ; delete-buffer'
+
+# kill pane
+unbind-key X
+bind-key x kill-pane
+
+# kill session
+bind-key X confirm-before -p "kill-window #I? (y/n)" kill-window
+
+# layouts
+unbind-key 8  # window 8
+unbind-key 9  # window 9
+unbind-key 0  # window 0
+unbind-key Space  # next-layout
+unbind-key M-1  # even-horizontal
+unbind-key M-2  # even-vertical
+unbind-key M-3  # main-horizontal
+unbind-key M-4  # main-vertical
+unbind-key M-5  # tiled
+unbind-key M-6  # main-horizontal-mirrored
+unbind-key M-7  # main-vertical-mirrored
+bind-key 8 select-layout even-horizontal
+bind-key i select-layout main-vertical
+bind-key I select-layout main-vertical-mirrored
+bind-key 9 select-layout even-vertical
+bind-key o select-layout main-horizontal
+bind-key O select-layout main-horizontal-mirrored
+bind-key t select-layout tiled
+
+# new window
+bind-key n new-window
+
+# reload config
+bind-key R source-file ~/.config/tmux/tmux.conf
+
+# resize pane
+bind-key -n M-h resize-pane -L 10
+bind-key -n M-j resize-pane -D 5
+bind-key -n M-k resize-pane -U 5
+bind-key -n M-l resize-pane -R 10
+
+bind-key -T copy-mode-vi M-h resize-pane -L 10
+bind-key -T copy-mode-vi M-j resize-pane -D 5
+bind-key -T copy-mode-vi M-k resize-pane -U 5
+bind-key -T copy-mode-vi M-l resize-pane -R 10
+
+# select pane
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+bind-key -n C-h if-shell "$is_vim" 'send-keys C-h' 'select-pane -L'
+bind-key -n C-j if-shell "$is_vim" 'send-keys C-j' 'select-pane -D'
+bind-key -n C-k if-shell "$is_vim" 'send-keys C-k' 'select-pane -U'
+bind-key -n C-l if-shell "$is_vim" 'send-keys C-l' 'select-pane -R'
+
+bind-key -T copy-mode-vi C-h select-pane -L
+bind-key -T copy-mode-vi C-j select-pane -D
+bind-key -T copy-mode-vi C-k select-pane -U
+bind-key -T copy-mode-vi C-l select-pane -R
+bind-key -T copy-mode-vi C-\\ select-pane -l
+
+# send pane interactively (https://bit.ly/30iQi1i)
+bind-key M choose-tree -Zw "join-pane -t '%%'"
+bind-key C-m choose-tree -Zs "join-pane -t '%%'"
+
+# split windows in the current directory
+bind-key \\ split-window -c "#{pane_current_path}" -h
+bind-key | split-window -c "#{pane_current_path}" -h
+bind-key - split-window -c "#{pane_current_path}" -v
+
+# swap pane
+bind-key s display-panes -d 750 \; \
+  command-prompt -1p "Swap with pane:" "swap-pane -dt '%%' \; select-pane -t '%%'"
