@@ -10,7 +10,7 @@ end
 
 if type -q batcat and not type -q bat
     function bat
-        __bat $argv
+        batcat $argv
     end
 end
 
