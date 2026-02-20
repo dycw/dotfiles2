@@ -3,6 +3,11 @@
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
+#######
+#######
+#######
+#######
+
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up '$(hostname)'..."
 
 configs="$(dirname -- "${SCRIPT_DIR}")/configs"
