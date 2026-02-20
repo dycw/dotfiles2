@@ -41,7 +41,7 @@ macbook) sh "${SCRIPT_DIR}"/install-macbook.sh ;;
 esac
 
 configs="$(dirname -- "$(dirname -- "${SCRIPT_DIR}")")"/configs
-find "${configs}" -type f -name 'install.sh' | sort | while IFS= read -r script; do
+find "${configs}" -type f -name 'install.sh' ! -path "${configs}/tmux/.tmux/*" | sort | while IFS= read -r script; do
 	sh "${script}" "${system}"
 done
 
