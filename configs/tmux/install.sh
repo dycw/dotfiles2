@@ -18,5 +18,9 @@ debian)
 		sudo apt install -y tmux
 	fi
 	;;
+macmini)
+	echo "[$(date '+%Y-%m-%d %H:%M:%S')] Installing 'tmux'..."
+	brew install tmux
+	;;
 *) ;;
 esac
