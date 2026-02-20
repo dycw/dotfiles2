@@ -13,7 +13,8 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'shell'..."
 
-link "${SCRIPT_DIR}/shell.sh" /etc/fish/conf.d/shell.fish
+link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/shell-fish.fish
+link "${SCRIPT_DIR}/shell.sh" /etc/fish/conf.d/shell-common.fish
 link "${SCRIPT_DIR}/shell.sh" /etc/profile.d/shell.sh
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'shell'"
