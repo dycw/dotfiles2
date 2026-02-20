@@ -14,6 +14,6 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'psql'..."
 
-link "${SCRIPT_DIR}/psqlrc" /etc/postgresql-common/psqlrc
+link "${SCRIPT_DIR}/psqlrc" "${HOME}/.psqlrc"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'psql'"

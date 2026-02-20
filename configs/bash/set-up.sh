@@ -12,8 +12,8 @@ link() {
 
 ###############################################################################
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'pdb'..."
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bash'..."
 
-link "${SCRIPT_DIR}/pdbrc" "${HOME}/.pdbrc"
+link "${SCRIPT_DIR}/bashrc" "${HOME}/.bashrc"
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'pdb'"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'bash'"

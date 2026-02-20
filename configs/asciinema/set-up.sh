@@ -14,6 +14,6 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'asciinema'..."
 
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/asciinema.fish
+link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/asciinema.fish"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'asciinema'"

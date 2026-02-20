@@ -126,7 +126,7 @@ end
 fish_vi_key_bindings
 
 function fish-reload
-    for file in /etc/fish/**/*.fish
+    for file in $XDG_CONFIG_HOME/fish/**/*.fish
         echo "Reloading $file..."
         source $file
     end

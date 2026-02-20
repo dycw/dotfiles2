@@ -1,5 +1,9 @@
 #!/usr/bin/env fish
 
+if not status is-interactive; or not type -q ghostty
+    exit
+end
+
 #### editor ###################################################################
 
 if type -q nvim
@@ -21,6 +25,11 @@ end
 if test -d $HOME/.local/bin
     fish_add_path $HOME/.local/bin
 end
+
+#### path dotfiles ############################################################
+
+set -l SCRIPT_DIR (cd (dirname (status filename)); and pwd -P)
+set -gx PATH_DOTFILES (cd "$SCRIPT_DIR/../.."; and pwd -P)
 
 #### swap files ###############################################################
 

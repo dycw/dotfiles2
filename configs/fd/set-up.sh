@@ -10,25 +10,11 @@ link() {
 	ln -sfn "$1" "$2"
 }
 
-link_home() {
-	home="$1"
-	target="${home}/.config/fd/ignore"
-	link "${SCRIPT_DIR}/ignore" "${target}"
-	owner=$(stat -c '%U:%G' "${home}" 2>/dev/null || echo '')
-	[ -n "${owner}" ] && chown -h "${owner}" "${target}" 2>/dev/null || :
-}
-
 ###############################################################################
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'fd'..."
 
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/fd.fish
-
-link_home "${HOME}"
-if [ -d /home ]; then
-	for dir in /home/*; do
-		link_home "${dir}"
-	done
-fi
+link "${SCRIPT_DIR}/ignore" "${XDG_CONFIG_HOME:-${HOME}/.config}/fd/ignore"
+link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/fd.fish"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'fd'"

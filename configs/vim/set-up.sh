@@ -14,6 +14,6 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'vim'..."
 
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/vim.fish
+link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/vim.fish"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'vim'"

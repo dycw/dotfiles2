@@ -14,8 +14,8 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'pytest'..."
 
-link "${SCRIPT_DIR}/env.sh" /etc/fish/conf.d/pytest-env.fish
-link "${SCRIPT_DIR}/env.sh" /etc/profile.d/pytest.sh
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/pytest-shell.fish
+link "${SCRIPT_DIR}/env.sh" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/pytest-env.fish"
+link "${SCRIPT_DIR}/env.sh" "${XDG_CONFIG_HOME:-${HOME}/.config}/posix/pytest.sh"
+link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/pytest-shell.fish"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'pytest'"
