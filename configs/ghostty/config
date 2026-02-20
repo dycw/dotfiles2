@@ -1,0 +1,4 @@
+font-family = Monaco
+shell-integration-features = sudo
+window-padding-x = 6
+window-padding-y = 0
