@@ -23,8 +23,8 @@ link_home() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'direnv'..."
 
-link "${SCRIPT_DIR}/direnv.fish" /etc/fish/conf.d/direnv.sh
-link "${SCRIPT_DIR}/direnv.sh" /etc/profile.d/direnv.sh
+link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/direnv.fish
+link "${SCRIPT_DIR}/shell.sh" /etc/profile.d/direnv.sh
 
 link_home "${HOME}"
 if [ -d /home ]; then
