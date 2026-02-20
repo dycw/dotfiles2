@@ -29,6 +29,8 @@ link_home_one() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'tmux'..."
 
+link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/tmux.fish
+
 link_home "${HOME}"
 if [ -d /home ]; then
 	for dir in /home/*; do
