@@ -12,8 +12,6 @@ link() {
 
 link_home() {
 	home="$1"
-	link_home_one "${SCRIPT_DIR}"/.tmux/.tmux.conf "${home}" tmux.conf
-	link_home_one "${SCRIPT_DIR}"/tmux.conf.local "${home}" tmux.conf.local
 }
 
 link_home_one() {
@@ -30,13 +28,8 @@ link_home_one() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'tmux'..."
 
-link "${SCRIPT_DIR}"/shell.fish /etc/fish/conf.d/tmux.fish
-
-link_home "${HOME}"
-if [ -d /home ]; then
-	for dir in /home/*; do
-		link_home "${dir}"
-	done
-fi
+link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/tmux.fish"
+link "${SCRIPT_DIR}/tmux.conf.local" "${XDG_CONFIG_HOME:-${HOME}/.tmux}/tmux/tmux.conf.local"
+link "${SCRIPT_DIR}/.tmux/.tmux.conf" "${XDG_CONFIG_HOME:-${HOME}/.tmux}/tmux/tmux.conf"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'tmux'"

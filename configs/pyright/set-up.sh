@@ -14,6 +14,6 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'pyright'..."
 
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/pyright.fish
+link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-/.config}/fish/conf.d/pyright.fish"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'pyright'"

@@ -14,7 +14,7 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'zoxide'..."
 
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/zoxide.fish
+link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-/.config}/fish/conf.d/zoxide.fish"
 link "${SCRIPT_DIR}/shell.sh" /etc/profile.d/zoxide.sh
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'zoxide'"

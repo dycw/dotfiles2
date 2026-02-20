@@ -22,7 +22,7 @@ link_home() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bottom'..."
 
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/bottom.fish
+link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-/.config}/fish/conf.d/bottom.fish"
 
 link_home "${HOME}"
 if [ -d /home ]; then

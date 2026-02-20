@@ -14,6 +14,6 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'ghostty'..."
 
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/ghostty.fish
+link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-/.config}/fish/conf.d/ghostty.fish"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'ghostty'"
