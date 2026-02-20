@@ -23,5 +23,5 @@ function ta
 end
 
 function tmux-reload
-    tmux source-file ${XDG_CONFIG_HOME}/tmux/tmux.conf
+    tmux source-file $XDG_CONFIG_HOME/tmux/tmux.conf
 end
