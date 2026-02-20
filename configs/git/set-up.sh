@@ -14,8 +14,8 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'git'..."
 
-link "${SCRIPT_DIR}/config" /etc/gitconfig
-link "${SCRIPT_DIR}/ignore" /etc/git/ignore
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/git.fish
+link "${SCRIPT_DIR}/config" "${XDG_CONFIG_HOME:-${HOME}/.config}/git/config"
+link "${SCRIPT_DIR}/ignore" "${XDG_CONFIG_HOME:-${HOME}/.config}/git/ignore"
+link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/git.fish"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'git'"

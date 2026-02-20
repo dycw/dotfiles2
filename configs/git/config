@@ -116,7 +116,7 @@
   verbose = true
 
 [core]
-  excludesfile = /etc/git/ignore
+  excludesfile = ~/.config/git/ignore
   pager = delta
 
 [diff]
