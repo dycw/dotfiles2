@@ -4,25 +4,54 @@
 set -eu
 SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
-###############################################################################
+#### start ####################################################################
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Install apps on'$(hostname)'..."
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Installing apps on '$(hostname)'..."
 
-unset SYSTEM
-if [ -r /etc/os-release ]; then
+#### determine system #########################################################
+
+unset system
+if [ "$(uname)" = Linux ] && [ -r /etc/os-release ]; then
 	. /etc/os-release
-	if [ "${ID:-}" != debian ]; then
-		echo "'ID' (${ID:-}) is not Debian; exiting..." >&2
-		exit 1
+	if [ "${ID:-}" = debian ]; then
+		system=debian
 	fi
-	exit 1
+elif [ "$(uname)" = Darwin ]; then
+	model=$(system_profiler SPHardwareDataType | awk -F': ' '/Model Identifier/ {print $2}')
+	case "${model}" in
+	Mac14,12 | Mac14,3) system=macmini ;;
+	MacBook*) system=macbook ;;
+	*) ;;
+	esac
 fi
 
-sh "${SCRIPT_DIR}"/_lib/install.sh
+#### configs ##################################################################
 
-configs="$(dirname -- "${SCRIPT_DIR}")"/configs
-find "${configs}" -type f -name 'set-up.sh' | sort | while IFS= read -r script; do
-	sh "${script}"
+configs="$(dirname -- "$(dirname -- "${SCRIPT_DIR}")")"/configs
+
+#### per-system ###############################################################
+
+case "${system:-}" in
+debian)
+	sh "${configs}"/curl/install.sh "${system}"
+	;;
+macmini)
+	sh "${configs}"/homebrew/install.sh "${system}"
+	;;
+macbook) ;;
+*)
+	echo "Unsupported system '${system}'; exiting..." >&2
+	exit 1
+	;;
+esac
+sh "${configs}"/uv/install.sh ${system}
+
+#### sub-installers ###########################################################
+
+find "${configs}" -type f -name 'install.sh' ! -path "${configs}/tmux/.tmux/*" | sort | while IFS= read -r script; do
+	sh "${script}" "${system}"
 done
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished install apps '$(hostname)'..."
+#### finish ###################################################################
+
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished installing apps on '$(hostname)'..."
