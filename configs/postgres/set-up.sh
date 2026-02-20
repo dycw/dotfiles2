@@ -1,17 +1,17 @@
 #!/usr/bin/env sh
 
 set -eu
-SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
 ###############################################################################
 
 link() {
 	mkdir -p "$(dirname -- "$2")"
-	ln -sfn "$1" "$2"
+	script_dir=$(cd -- "$(dirname -- "$0")" && pwd -P)
+	ln -sfn "${script_dir}/$1" "${XDG_CONFIG_HOME:-${HOME}/.config}/$2"
 }
 
 ###############################################################################
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'postgres'..."
 
-link "${SCRIPT_DIR}/shell.sh" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/postgres.fish"
+link shell.sh fish/conf.d/postgres.fish

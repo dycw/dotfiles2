@@ -1,24 +1,29 @@
 #!/usr/bin/env sh
 
 set -eu
-SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
 ###############################################################################
 
+script_dir=$(cd -- "$(dirname -- "$0")" && pwd -P)
+
 link() {
 	mkdir -p "$(dirname -- "$2")"
-	ln -sfn "$1" "$2"
+	ln -sfn "$1" "${XDG_CONFIG_HOME:-${HOME}/.config}/$2"
+}
+
+link_here() {
+	link "${script_dir}/$1" "$2"
 }
 
 ###############################################################################
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'fzf'..."
 
-link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/fzf.fish"
-link "${SCRIPT_DIR}/shell.sh" "${XDG_CONFIG_HOME:-${HOME}/.config}/posix/fzf.sh"
-link "${SCRIPT_DIR}/fzf.fish/conf.d/fzf.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/fzf-fish-plugin.fish"
-for file in "${SCRIPT_DIR}"/fzf.fish/functions/*.fish; do
+link_here shell.fish fish/conf.d/fzf.fish
+link_here shell.sh posix/fzf.sh
+link_here fzf.fish/conf.d/fzf.fish fish/conf.d/fzf-fish-plugin.fish
+for file in "${script_dir}"/fzf.fish/functions/*.fish; do
 	[ -e "$file" ] || continue
 	name=$(basename -- "${file}")
-	link "${file}" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/functions/${name}"
+	link "${file}" "fish/functions/${name}"
 done
