@@ -9,7 +9,7 @@ echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up '$(hostname)'..."
 
 configs="$(dirname -- "${SCRIPT_DIR}")/configs"
 find "${configs}" -type f -name 'set-up.sh' | while IFS= read -r script; do
-	. "${script}"
+	sh "${script}"
 done
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up '$(hostname)'..."
