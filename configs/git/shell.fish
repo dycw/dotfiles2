@@ -6,7 +6,7 @@ end
 
 #### config ###################################################################
 
-function git-shell-fish
+function edit-git-shell
     $EDITOR $PATH_DOTFILES/configs/git/shell.fish
 end
 

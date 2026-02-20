@@ -6,6 +6,6 @@ end
 
 ###############################################################################
 
-function ghostty-config
-    $EDITOR $HOME/dotfiles/ghostty/config
+function edit-ghostty-config
+    $EDITOR $PATH_DOTFILES/configs/ghostty/config
 end

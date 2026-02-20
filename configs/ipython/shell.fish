@@ -6,6 +6,6 @@ end
 
 ###############################################################################
 
-function ipython-startup
+function edit-ipython-startup
     $EDITOR $PATH_DOTFILES/configs/ipython/startup.py
 end

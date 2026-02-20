@@ -6,6 +6,6 @@ end
 
 ###############################################################################
 
-function bottom-toml
+function edit-bottom-toml
     $EDITOR $PATH_DOTFILES/configs/bottom/bottom.toml
 end

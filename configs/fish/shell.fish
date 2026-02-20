@@ -96,7 +96,7 @@ end
 
 #### config ###################################################################
 
-function fish-shell-fish
+function edit-fish-shell
     $EDITOR $PATH_DOTFILES/configs/fish/shell.fish
 end
 
@@ -283,8 +283,16 @@ function add-known-host
     end
 end
 
-function authorized-keys
+function edit-authorized-keys
     $EDITOR $HOME/.ssh/authorized_keys
+end
+
+function edit-known-hosts
+    $EDITOR $HOME/.ssh/known_hosts
+end
+
+function edit-ssh-config
+    $EDITOR $HOME/.ssh/config
 end
 
 function generate-ssh-key
@@ -296,14 +304,6 @@ function generate-ssh-key
         set filename_use id_ed25519
     end
     ssh-keygen -C '' -f $filename_use -P '' -t ed25519 $args
-end
-
-function known-hosts
-    $EDITOR $HOME/.ssh/known_hosts
-end
-
-function ssh-config
-    $EDITOR $HOME/.ssh/config
 end
 
 function ssh-auto
