@@ -6,12 +6,14 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
 ###############################################################################
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'starship'..."
-
 link() {
 	mkdir -p "$(dirname -- "$2")"
 	ln -sfn "$1" "$2"
 }
+
+###############################################################################
+
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'starship'..."
 
 link "${SCRIPT_DIR}/starship.fish" /etc/fish/conf.d/starship.sh
 link "${SCRIPT_DIR}/starship.sh" /etc/profile.d/starship.sh
