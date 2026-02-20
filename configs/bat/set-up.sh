@@ -14,6 +14,6 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bat'..."
 
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/bat.fish
+link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/bat.fish"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'bat'"
