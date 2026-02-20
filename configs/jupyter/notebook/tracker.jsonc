@@ -1,0 +1,34 @@
+{
+  "accessKernelHistory": false,
+  "autoStartDefaultKernel": true,
+  "codeCellConfig": {
+    "autoClosingBrackets": true,
+  },
+  "defaultCell": "code",
+  "documentWideUndoRedo": false,
+  "enableKernelInitNotification": false,
+  "inputHistoryScope": "global",
+  "kernelStatus": {
+    "showOnStatusBar": false,
+    "showProgress": true,
+  },
+  "kernelShutdown": false,
+  "markdownCellConfig": {
+    "autoClosingBrackets": true,
+  },
+  "maxNumberOutputs": 50,
+  "overscanCount": 1,
+  "rawCellConfig": {
+    "autoClosingBrackets": true,
+  },
+  "recordTiming": true,
+  "renderingLayout": "default",
+  "scrollHeadingToTop": true,
+  "scrollPastEnd": true,
+  "showEditorForReadOnlyMarkdown": true,
+  "showHiddenCellsButton": true,
+  "sideBySideLeftMarginOverride": "10px",
+  "sideBySideOutputRatio": 1,
+  "sideBySideRightMarginOverride": "10px",
+  "windowingMode": "full",
+}
