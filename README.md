@@ -26,24 +26,24 @@ rm -rf /var/lib/apt/lists/*
 apt update
 apt full-upgrade -y
 apt install -y age bat btm build-essential curl direnv du-dust eza fd-find \
-    fzf git git-delta jq just restic ripgrep rsync sd shellcheck shfmt starship \
-    sudo yq zoxide
+    fish fzf git git-delta jq just restic ripgrep rsync sd shellcheck shfmt \
+    starship sudo yq zoxide
 apt autoremove -y
 apt clean
+
+chsh -s /usr/bin/fish
+chsh -s /usr/bin/fish derek
 usermod -aG sudo derek
 
-BASHRC_SH=/etc/profile.d/bashrc.sh
-LINES=$(cat <<'EOF'
-eval "$(direnv hook bash)"
-eval "$(fzf --bash)"
-eval "$(starship init bash)"
-eval "$(zoxide init --cmd j bash)"
-EOF
-)
-touch ${BASHRC_SH}
-while IFS= read -r LINE; do
-    grep -qxF "${LINE}" "${BASHRC_SH}" || echo "${LINE}" >> "${BASHRC_SH}"
-done <<< "${LINES}"
+printf '%s\n' 'eval "$(direnv hook bash)"' > /etc/profile.d/direnv.sh
+printf '%s\n' 'eval "$(fzf --bash)"' > /etc/profile.d/fzf.sh
+printf '%s\n' 'eval "$(starship init bash)"' > /etc/profile.d/starship.sh
+printf '%s\n' 'eval "$(zoxide init --cmd j bash)"' > /etc/profile.d/zoxide.sh
+
+printf '%s\n' 'direnv hook fish | source' > /etc/fish/conf.d/direnv.fish
+printf '%s\n' 'fzf --fish | source' > /etc/fish/conf.d/fzf.fish
+printf '%s\n' 'starship init fish | source' > /etc/fish/conf.d/starship.fish
+printf '%s\n' 'zoxide init --cmd j fish | source' > /etc/fish/conf.d/zoxide.fish
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
 source ${HOME}/.local/bin/env
