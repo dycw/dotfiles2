@@ -15,5 +15,3 @@ link() {
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'sops'..."
 
 link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/sops.fish"
-
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'sops'"

@@ -14,5 +14,3 @@ configs="$(dirname -- "${SCRIPT_DIR}")"/configs
 find "${configs}" -type f -name 'set-up.sh' | sort | while IFS= read -r script; do
 	sh "${script}"
 done
-
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up '$(hostname)'..."
