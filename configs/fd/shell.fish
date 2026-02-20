@@ -4,6 +4,8 @@ if not status is-interactive; or not type -q fd
     exit
 end
 
+###############################################################################
+
 function fdd
     __fd_base directory $argv
 end

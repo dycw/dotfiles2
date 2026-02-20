@@ -4,6 +4,8 @@ if not status is-interactive; or not type -q curl
     exit
 end
 
+###############################################################################
+
 function curl-sh
     if test (count $argv) -lt 1
         echo "'curl-sh' expected [1..) arguments URL; got $(count $argv)" >&2; and return 1
