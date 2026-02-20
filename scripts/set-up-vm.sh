@@ -50,8 +50,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 . "${HOME}/.local/bin/env"
 
 # set up SSH
-SSH_KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBGOo3yytWfRyOhsWIg4wR/s6wbxWM+MIWLV0EnlkJK'
-uvx --from dycw-installer[cli]@latest set-up-keys "${SSH_KEY}"
+AUTHORIZED_KEYS='https://raw.githubusercontent.com/dycw/authorized-keys/refs/heads/master/authorized_keys'
+uvx --from dycw-installer[cli]@latest set-up-keys "$(curl -fssL ${AUTHORIZED_KEYS})"
 uvx --from dycw-installer[cli]@latest set-up-ssh
 uvx --from dycw-installer[cli]@latest set-up-sshd --permit-root-login
 
@@ -61,12 +61,13 @@ rm -rf ~/.config/nvim
 git clone --recurse-submodules https://github.com/queensberry-research/neovim.git ~/.config/nvim
 
 # set up 'derek'
+cp ~/.ssh/authorized_keys /home/derek/.ssh/authorized_keys
 su -s /bin/bash - derek <<'EOF'
 set -eu
 curl -LsSf https://astral.sh/uv/install.sh | sh
 source ${HOME}/.local/bin/env
-SSH_KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBGOo3yytWfRyOhsWIg4wR/s6wbxWM+MIWLV0EnlkJK'
-uvx --from dycw-installer[cli]@latest set-up-keys "${SSH_KEY}"
+AUTHORIZED_KEYS='https://raw.githubusercontent.com/dycw/authorized-keys/refs/heads/master/authorized_keys'
+uvx --from dycw-installer[cli]@latest set-up-keys "$(curl -fssL ${AUTHORIZED_KEYS})"
 uvx --from dycw-installer[cli]@latest set-up-ssh
 rm -rf ~/.config/nvim
 git clone --recurse-submodules https://github.com/queensberry-research/neovim.git ~/.config/nvim
