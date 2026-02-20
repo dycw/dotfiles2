@@ -14,10 +14,6 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bash'..."
 
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/bash.fish
-link "${SCRIPT_DIR}"/bash_config.py \
-	"${HOME}"/.bash/profile_default/bash_config.py
-link "${SCRIPT_DIR}"/startup.py \
-	"${HOME}"/.bash/profile_default/startup/startup.py
+link "${SCRIPT_DIR}"/bashrc "${HOME}"/.bashrc
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'bash'"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC1091
+# shellcheck disable=SC1090,SC1091
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -36,3 +36,8 @@ if ! shopt -oq posix; then
         . /etc/bash_completion
     fi
 fi
+
+# Load shared POSIX shell snippets
+for file in "${HOME}"/.config/posix/*.sh; do
+    [ -f "${file}" ] && . "${file}"
+done
