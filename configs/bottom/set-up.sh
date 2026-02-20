@@ -16,5 +16,3 @@ echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bottom'..."
 
 link "${SCRIPT_DIR}/bottom.toml" "${XDG_CONFIG_HOME:-${HOME}/.config}/bottom/bottom.toml"
 link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/bottom.fish"
-
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'bottom'"

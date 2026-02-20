@@ -15,5 +15,3 @@ link() {
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bash'..."
 
 link "${SCRIPT_DIR}/bashrc" "${HOME}/.bashrc"
-
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'bash'"

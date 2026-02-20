@@ -26,5 +26,3 @@ link "${SCRIPT_DIR}/fileeditor/plugin.jsonc" "${HOME}/.jupyter/lab/user-settings
 link "${SCRIPT_DIR}/jupyterlab_code_formatter/settings.jsonc" "${HOME}/.jupyter/lab/user-settings/jupyterlab_code_formatter/settings.jupyterlab-settings"
 link "${SCRIPT_DIR}/notebook/tracker.jsonc" "${HOME}/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/tracker.jupyterlab-settings"
 link "${SCRIPT_DIR}/shortcuts/shortcuts.jsonc" "${HOME}/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/shortcuts.jupyterlab-settings"
-
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'jupyter'"

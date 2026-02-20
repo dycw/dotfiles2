@@ -16,5 +16,3 @@ echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'fd'..."
 
 link "${SCRIPT_DIR}/ignore" "${XDG_CONFIG_HOME:-${HOME}/.config}/fd/ignore"
 link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/fd.fish"
-
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'fd'"

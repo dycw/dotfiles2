@@ -22,5 +22,3 @@ for file in "${SCRIPT_DIR}"/fzf.fish/functions/*.fish; do
 	name=$(basename -- "${file}")
 	link "${file}" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/functions/${name}"
 done
-
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'fzf'"
