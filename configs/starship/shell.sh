@@ -1,11 +1,8 @@
 #!/usr/bin/env sh
 
 set -eu
-
-###############################################################################
-
-if [ -z "${PS1-}" ] || ! command -v starship >/dev/null 2>&1; then
-	exit
+if ! case $- in *i*) true ;; *) false ;; esac || ! command -v starship >/dev/null 2>&1; then
+	exit 0
 fi
 
 ###############################################################################

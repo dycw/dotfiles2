@@ -17,6 +17,6 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'ripgrep'..."
 
-link ripgreprc "${XDG_CONFIG_HOME:-\$\{HOME\}/.config}/ripgrep/ripgreprc"
-link shell.fish "${XDG_CONFIG_HOME:-\$\{HOME\}/.config}/fish/conf.d/ripgrep.fish"
-link shell.sh "${XDG_CONFIG_HOME:-\$\{HOME\}/.config}/posix/ripgrep.sh"
+link ripgreprc "${XDG_CONFIG_HOME:-${HOME}/.config}/ripgrep/ripgreprc"
+link shell.fish "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/ripgrep.fish"
+link shell.sh "${XDG_CONFIG_HOME:-${HOME}/.config}/posix/ripgrep.sh"
