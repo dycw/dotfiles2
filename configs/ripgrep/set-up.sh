@@ -16,4 +16,3 @@ echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'ripgrep'..."
 
 link ripgreprc ripgrep/ripgreprc
 link shell.fish fish/conf.d/ripgrep.fish
-link shell.sh posix/ripgrep.sh
