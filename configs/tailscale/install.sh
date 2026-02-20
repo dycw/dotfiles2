@@ -21,6 +21,7 @@ debian)
 macmini)
 	echo "[$(date '+%Y-%m-%d %H:%M:%S')] Installing 'tailscale'..."
 	brew install tailscale
+	brew services start tailscale
 	;;
 *) ;;
 esac

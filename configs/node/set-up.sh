@@ -12,8 +12,8 @@ link() {
 
 ###############################################################################
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'homebrew'..."
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'node'..."
 
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/homebrew.fish
+link "${SCRIPT_DIR}/shell.sh" /etc/fish/conf.d/node.fish
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'homebrew'"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'node'"
