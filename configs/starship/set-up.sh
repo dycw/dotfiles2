@@ -9,7 +9,7 @@ link() {
 	ln -sfn "$1" "$2"
 }
 
-link "${SCRIPT_DIR}/starship.fish" /etc/fish/cron.d/starship.sh
+link "${SCRIPT_DIR}/starship.fish" /etc/fish/conf.d/starship.sh
 link "${SCRIPT_DIR}/starship.sh" /etc/profile.d/starship.sh
 link "${SCRIPT_DIR}/starship.toml" /etc/starship/starship.toml
 
