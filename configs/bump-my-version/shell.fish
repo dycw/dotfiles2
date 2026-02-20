@@ -4,6 +4,25 @@ if ! status is-interactive
     exit
 end
 
-function bottom-toml
-    "$EDITOR" "$HOME/.config/bottom/bottom.toml"
+if type -q bump-my-version
+    function bump-patch
+        bump-my-version bump patch
+    end
+    function bump-minor
+        bump-my-version bump minor
+    end
+    function bump-major
+        bump-my-version bump major
+    end
+    function bump-set
+        if test (count $argv) -lt 1
+            echo "'bump-set' expected [1..) arguments VERSION; got $(count $argv)" >&2; and return 1
+        end
+        while true
+            if bump-my-version replace --new-version $argv[1]
+                return
+            end
+            sleep 2
+        end
+    end
 end

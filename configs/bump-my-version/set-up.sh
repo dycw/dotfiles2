@@ -9,23 +9,10 @@ link() {
 	ln -sfn "$1" "$2"
 }
 
-link_home() {
-	home="$1"
-	target="${home}/.config/bottom/bottom.toml"
-	link "${SCRIPT_DIR}/bottom.toml" "${target}"
-	owner=$(stat -c '%U:%G' "${home}" 2>/dev/null || echo '')
-	[ -n "${owner}" ] && chown -h "${owner}" "${target}" 2>/dev/null || :
-}
-
 ###############################################################################
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bottom'..."
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bump-my-version'..."
 
-link_home "${HOME}"
-if [ -d /home ]; then
-	for dir in /home/*; do
-		link_home "${dir}"
-	done
-fi
+link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/bump-my-version.fish
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'bottom'"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'bump-my-version'"
