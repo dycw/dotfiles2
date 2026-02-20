@@ -35,7 +35,7 @@ macmini)
 	;;
 macbook) sh "${SCRIPT_DIR}"/install-macbook.sh ;;
 *)
-	echo "Unsupported system; exiting..." >&2
+	echo "Unsupported system '${system}'; exiting..." >&2
 	exit 1
 	;;
 esac
