@@ -4,6 +4,8 @@ if not status is-interactive; or not type -q fzf
     exit
 end
 
+###############################################################################
+
 fzf --fish | source
 
 set fzf_fd_opts --hidden

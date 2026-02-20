@@ -4,6 +4,8 @@ if not status is-interactive; or not type -q bump-my-version
     exit
 end
 
+###############################################################################
+
 function bump-patch
     bump-my-version bump patch
 end

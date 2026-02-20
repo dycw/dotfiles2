@@ -1,11 +1,11 @@
 #!/usr/bin/env fish
 
-if not status is-interactive
+if not status is-interactive; or not type -q ghostty
     exit
 end
 
 ###############################################################################
 
-function bottom-toml
-    "$EDITOR" "$HOME/.config/bottom/bottom.toml"
+function ghostty-config
+    $EDITOR $HOME/dotfiles/ghostty/config
 end

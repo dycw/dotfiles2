@@ -4,6 +4,8 @@ if not status is-interactive; or not type -q asciinema
     exit
 end
 
+###############################################################################
+
 function asciinema-record
     set -l dir
     if test -d $HOME/Dropbox/Screenshots

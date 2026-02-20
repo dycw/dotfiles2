@@ -4,6 +4,8 @@ if not status is-interactive; or not type -q eza
     exit
 end
 
+###############################################################################
+
 function l
     la --git-ignore $argv
 end
