@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 if [ -n "${BASH_VERSION-}" ]; then
-	eval "$(fzf --bash)"
+	eval "$(zoxide init --cmd j bash)"
 elif [ -n "${ZSH_VERSION-}" ]; then
-	eval "$(fzf --zsh)"
+	eval "$(zoxide init --cmd j zsh)"
 fi
