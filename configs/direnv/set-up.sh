@@ -25,6 +25,12 @@ echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'direnv'..."
 
 link "${SCRIPT_DIR}/direnv.fish" /etc/fish/conf.d/direnv.sh
 link "${SCRIPT_DIR}/direnv.sh" /etc/profile.d/direnv.sh
-link "${SCRIPT_DIR}/direnv.toml" /etc/direnv/direnv.toml
+
+link_home "${HOME}"
+if [ -d /home ]; then
+	for dir in /home/*; do
+		link_home "${dir}"
+	done
+fi
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'direnv'"
