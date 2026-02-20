@@ -16,11 +16,17 @@ elif command -v nano >/dev/null 2>&1; then
 	export VISUAL=nano
 fi
 
+#### local ####################################################################
+
+if [ -d "${HOME}"/.local/bin ]; then
+	export PATH="${HOME}/.local/bin${PATH:+:${PATH}}"
+fi
+
 #### swap files ###############################################################
 
-for swap in "$HOME"/.mode.sw*; do
-	[ -e "$swap" ] || continue
-	rm -v -- "$swap"
+for swap in "${HOME}"/.mode.sw*; do
+	[ -e "${swap}" ] || continue
+	rm -v -- "${swap}"
 done
 
 #### XDG ######################################################################

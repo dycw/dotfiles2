@@ -16,6 +16,12 @@ else if type -q nano
     set -gx VISUAL nano
 end
 
+#### local ####################################################################
+
+if test -d $HOME/.local/bin
+    fish_add_path $HOME/.local/bin
+end
+
 #### swap files ###############################################################
 
 for swap in $HOME/.mode.sw*
