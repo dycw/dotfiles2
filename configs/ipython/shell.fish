@@ -7,5 +7,5 @@ end
 ###############################################################################
 
 function ipython-startup
-    $EDITOR $HOME/dotfiles/ipython/startup.py
+    $EDITOR $PATH_DOTFILES/configs/ipython/startup.py
 end

@@ -36,7 +36,7 @@ function cddbt
 end
 
 function cddf
-    cd $HOME/dotfiles
+    cd $PATH_DOTFILES
 end
 
 function cddl
@@ -94,6 +94,12 @@ function chown-dirs
     find . -type d -exec chown $argv[1] {} \;
 end
 
+#### config ###################################################################
+
+function fish-shell-fish
+    $EDITOR $PATH_DOTFILES/configs/fish/shell.fish
+end
+
 #### cp #######################################################################
 
 function cp
@@ -123,14 +129,6 @@ end
 #### fish #####################################################################
 
 fish_vi_key_bindings
-
-function fish-config
-    $EDITOR $HOME/dotfiles/fish/config.fish
-end
-
-function fish-env
-    $EDITOR $HOME/dotfiles/fish/env.fish
-end
 
 function fish-reload
     for file in /etc/fish/**/*.fish
