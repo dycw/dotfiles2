@@ -26,7 +26,7 @@ EOF
 #### 'apt' installs ###########################################################
 
 apt install -y \
-	fish sd shellcheck shfmt \
+	fish \
 	starship sudo yq zoxide
 
 chsh -s /usr/bin/fish
