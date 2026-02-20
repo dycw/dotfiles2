@@ -1,0 +1,76 @@
+{
+  "shortcuts": [
+    {
+      "args": {},
+      "command": "kernelmenu:interrupt",
+      "keys": ["`", "I"],
+      "selector": "[data-jp-kernel-user]:not(.jp-mod-readWrite) :focus:not(:read-write)",
+    },
+    {
+      "args": {},
+      "command": "kernelmenu:restart",
+      "keys": ["`", "R"],
+      "selector": "[data-jp-kernel-user]:not(.jp-mod-readWrite) :focus:not(:read-write)",
+    },
+    {
+      "args": {},
+      "command": "kernelmenu:restart-and-clear",
+      "keys": ["`", "C"],
+      "selector": "[data-jp-kernel-user]:not(.jp-mod-readWrite) :focus:not(:read-write)",
+    },
+    {
+      "args": {},
+      "command": "kernelmenu:shutdown",
+      "keys": ["`", "S"],
+      "selector": "[data-jp-kernel-user]:not(.jp-mod-readWrite) :focus:not(:read-write)",
+    },
+    {
+      "args": {},
+      "command": "runmenu:run-all",
+      "keys": ["`", "A"],
+      "selector": "[data-jp-kernel-user]:not(.jp-mod-readWrite) :focus:not(:read-write)",
+    },
+    {
+      "args": {},
+      "command": "runmenu:restart-and-run-all",
+      "keys": ["`", "R", "A"],
+      "selector": "[data-jp-kernel-user]:not(.jp-mod-readWrite) :focus:not(:read-write)",
+    },
+    {
+      "args": {},
+      "command": "notebook:run-all-above",
+      "keys": ["`", "K"],
+      "selector": ".jp-Notebook.jp-mod-editMode",
+    },
+    {
+      "args": {},
+      "command": "notebook:run-all-above",
+      "keys": ["`", "K"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+    },
+    {
+      "args": {},
+      "command": "notebook:run-all-below",
+      "keys": ["`", "J"],
+      "selector": ".jp-Notebook.jp-mod-editMode",
+    },
+    {
+      "args": {},
+      "command": "notebook:run-all-below",
+      "keys": ["`", "J"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+    },
+    {
+      "args": {},
+      "command": "notebook:restart-and-run-to-selected",
+      "keys": ["`", "Enter"],
+      "selector": ".jp-Notebook.jp-mod-editMode",
+    },
+    {
+      "args": {},
+      "command": "notebook:restart-and-run-to-selected",
+      "keys": ["`", "Enter"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+    },
+  ],
+}

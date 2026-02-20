@@ -1,0 +1,42 @@
+{
+  // File Browser
+  // @jupyterlab/filebrowser-extension:browser
+  // File Browser settings.
+  // *****************************************
+
+  // Filter folders
+  // Whether to apply the search on folders
+  "filterDirectories": true,
+
+  // Navigate to current folder
+  // Whether to automatically navigate to a document's current folder
+  "navigateToCurrentDirectory": true,
+
+  // Use checkboxes to select items
+  // Whether to show checkboxes next to files and folders
+  "showFileCheckboxes": false,
+
+  // Show file size column
+  // Whether to show the file size column
+  "showFileSizeColumn": false,
+
+  // Show full path in browser bread crumbs
+  // Whether to show full path in browser bread crumbs
+  "showFullPath": false,
+
+  // Show hidden files
+  // Whether to show hidden files. The server parameter `ContentsManager.allow_hidden` must be set to `True` to display hidden files.
+  "showHiddenFiles": true,
+
+  // Show last modified column
+  // Whether to show the last modified column
+  "showLastModifiedColumn": true,
+
+  // When sorting by name, group notebooks before other files
+  // Whether to group the notebooks away from files
+  "sortNotebooksFirst": true,
+
+  // Filter on file name with a fuzzy search
+  // Whether to apply fuzzy algorithm while filtering on file names
+  "useFuzzyFilter": true,
+}

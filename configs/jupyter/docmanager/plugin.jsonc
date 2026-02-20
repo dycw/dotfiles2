@@ -1,0 +1,18 @@
+{
+  // Document Manager
+  // @jupyterlab/docmanager-extension:plugin
+  // Document Manager settings.
+  // ***************************************
+
+  // Autosave Documents
+  // Whether to autosave documents
+  "autosave": false,
+
+  // Autosave Interval
+  // Length of save interval in seconds
+  "autosaveInterval": 120,
+
+  // Rename Untitled File On First Save
+  // Whether to prompt to rename untitled file on first manual save.
+  "renameUntitledFileOnSave": false,
+}
