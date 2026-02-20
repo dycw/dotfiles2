@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-if not status is-interactive
+if not status is-interactive; or not type -q btm
     exit
 end
 
