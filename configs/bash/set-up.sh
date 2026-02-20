@@ -1,17 +1,20 @@
 #!/usr/bin/env sh
 
 set -eu
-SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
+if ! case $- in *i*) true ;; *) false ;; esac then
+	exit 0
+fi
 
 ###############################################################################
 
 link() {
 	mkdir -p "$(dirname -- "$2")"
-	ln -sfn "$1" "$2"
+	script_dir=$(cd -- "$(dirname -- "$0")" && pwd -P)
+	ln -sfn "${script_dir}/$1" "$2"
 }
 
 ###############################################################################
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bash'..."
 
-link "${SCRIPT_DIR}/bashrc" "${HOME}/.bashrc"
+link bashrc "${HOME}/.bashrc"

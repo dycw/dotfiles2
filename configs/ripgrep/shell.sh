@@ -1,10 +1,9 @@
 #!/usr/bin/env sh
 
 set -eu
-case $- in
-*i*) ;;
-*) return ;;
-esac
+if ! case $- in *i*) true ;; *) false ;; esac then
+	exit 0
+fi
 
 ###############################################################################
 

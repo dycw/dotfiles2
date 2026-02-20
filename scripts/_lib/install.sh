@@ -2,7 +2,9 @@
 # shellcheck disable=SC1091,SC2016
 
 set -eu
-SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
+if ! case $- in *i*) true ;; *) false ;; esac then
+	exit 0
+fi
 
 #### start ####################################################################
 
@@ -27,6 +29,7 @@ fi
 
 #### configs ##################################################################
 
+SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 configs="$(dirname -- "$(dirname -- "${SCRIPT_DIR}")")"/configs
 
 #### per-system ###############################################################
