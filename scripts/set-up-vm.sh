@@ -29,7 +29,7 @@ rm -rf /var/lib/apt/lists/*
 apt update
 apt full-upgrade -y
 apt install -y eza fd-find \
-	fish git git-delta jq just restic ripgrep rsync sd shellcheck shfmt \
+	fish jq just restic ripgrep rsync sd shellcheck shfmt \
 	starship sudo yq zoxide
 apt autoremove -y
 apt clean
