@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+set -eu
+
+###############################################################################
+
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'keymapp'..."
 
 TEMP_DIR="$(mktemp -d)"
