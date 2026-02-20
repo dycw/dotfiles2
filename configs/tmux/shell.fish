@@ -23,10 +23,5 @@ function ta
 end
 
 function tmux-reload
-    if set -q XDG_CONFIG_HOME
-        set -l path $XDG_CONFIG_HOME
-    else
-        set -l path $HOME/.config
-    end
-    tmux source-file $path/tmux/tmux.conf
+    tmux source-file $XDG_CONFIG_HOME/tmux/tmux.conf
 end

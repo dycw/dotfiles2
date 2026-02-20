@@ -19,12 +19,7 @@ function ....
 end
 
 function cdconfig
-    if set -q XDG_CONFIG_HOME
-        set -l path $XDG_CONFIG_HOME
-    else
-        set -l path $HOME/.config
-    end
-    cd $path
+    cd $XDG_CONFIG_HOME
 end
 
 function cddb
@@ -36,7 +31,7 @@ function cddbt
 end
 
 function cddf
-    cd $HOME/dotfiles
+    cd $PATH_DOTFILES
 end
 
 function cddl
@@ -94,6 +89,12 @@ function chown-dirs
     find . -type d -exec chown $argv[1] {} \;
 end
 
+#### config ###################################################################
+
+function edit-fish-shell
+    $EDITOR $PATH_DOTFILES/configs/fish/shell.fish
+end
+
 #### cp #######################################################################
 
 function cp
@@ -123,14 +124,6 @@ end
 #### fish #####################################################################
 
 fish_vi_key_bindings
-
-function fish-config
-    $EDITOR $HOME/dotfiles/fish/config.fish
-end
-
-function fish-env
-    $EDITOR $HOME/dotfiles/fish/env.fish
-end
 
 function fish-reload
     for file in /etc/fish/**/*.fish
@@ -285,8 +278,16 @@ function add-known-host
     end
 end
 
-function authorized-keys
+function edit-authorized-keys
     $EDITOR $HOME/.ssh/authorized_keys
+end
+
+function edit-known-hosts
+    $EDITOR $HOME/.ssh/known_hosts
+end
+
+function edit-ssh-config
+    $EDITOR $HOME/.ssh/config
 end
 
 function generate-ssh-key
@@ -298,14 +299,6 @@ function generate-ssh-key
         set filename_use id_ed25519
     end
     ssh-keygen -C '' -f $filename_use -P '' -t ed25519 $args
-end
-
-function known-hosts
-    $EDITOR $HOME/.ssh/known_hosts
-end
-
-function ssh-config
-    $EDITOR $HOME/.ssh/config
 end
 
 function ssh-auto

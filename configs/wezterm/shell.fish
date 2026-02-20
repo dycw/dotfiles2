@@ -6,6 +6,6 @@ end
 
 ###############################################################################
 
-function wezterm-lua
-    $EDITOR $WEZTERM_CONFIG_FILE
+function edit-wezterm-lua
+    $EDITOR $PATH_DOTFILES/configs/wezterm/wezterm.lua
 end

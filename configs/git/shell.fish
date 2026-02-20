@@ -6,12 +6,8 @@ end
 
 #### config ###################################################################
 
-function fish-git
-    $EDITOR $HOME/dotfiles/fish/git.fish
-end
-
-function git-ignore
-    $EDITOR $(git repo-root)/pyproject.toml
+function edit-git-shell
+    $EDITOR $PATH_DOTFILES/configs/git/shell.fish
 end
 
 #### git ######################################################################
