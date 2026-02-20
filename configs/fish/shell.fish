@@ -241,7 +241,28 @@ function ping-ts
     end
 end
 
-#### lsof #####################################################################
+#### rm #######################################################################
+
+function rm
+    if contains -- .git $argv
+        read -P "Are you sure you want to remove '.git'? (y/N) " reply
+        switch $reply
+            case y Y
+                # continue
+            case '*'
+                echo "Exiting..." >&2; and return 1
+                return 1
+        end
+    end
+    command rm -frv $argv
+end
+
+function unlink
+    for arg in $argv
+        command unlink $arg
+    end
+end
+
 #### lsof #####################################################################
 #### lsof #####################################################################
 #### lsof #####################################################################
