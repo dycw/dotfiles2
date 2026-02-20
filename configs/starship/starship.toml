@@ -46,6 +46,7 @@ ${character}"""
   ssh_symbol = '🌐'
 
 [localip]
+  disabled = false
   format = '[${localipv4}]($style) '
   ssh_only = false
 
