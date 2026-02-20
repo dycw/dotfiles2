@@ -14,7 +14,7 @@ link() {
 link_home() {
 	home="$1"
 	target="${home}/.config/fd/ignore"
-	link "${SCRIPT_DIR}/fd.toml" "${target}"
+	link "${SCRIPT_DIR}/ignore" "${target}"
 	owner=$(stat -c '%U:%G' "${home}" 2>/dev/null || echo '')
 	[ -n "${owner}" ] && chown -h "${owner}" "${target}" 2>/dev/null || :
 }
