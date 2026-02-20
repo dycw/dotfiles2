@@ -57,15 +57,18 @@ uvx --from dycw-installer[cli]@latest set-up-sshd --permit-root-login
 
 # install & set up 'neovim'
 uvx --from dycw-installer[cli]@latest set-up-neovim
+rm -rf ~/.config/nvim
 git clone --recurse-submodules https://github.com/queensberry-research/neovim.git ~/.config/nvim
 nvim --headless +Lazy! sync +qa
 
 # set up 'derek'
 su -s /bin/sh - derek <<'EOF'
+set -eu
 curl -LsSf https://astral.sh/uv/install.sh | sh
 source ${HOME}/.local/bin/env
 SSH_KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBGOo3yytWfRyOhsWIg4wR/s6wbxWM+MIWLV0EnlkJK'
 uvx --from dycw-installer[cli]@latest set-up-keys "${SSH_KEY}"
 uvx --from dycw-installer[cli]@latest set-up-ssh
+rm -rf ~/.config/nvim
 git clone --recurse-submodules https://github.com/queensberry-research/neovim.git ~/.config/nvim
 EOF
