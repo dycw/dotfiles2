@@ -13,8 +13,14 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'ssh'..."
 
-AUTHORIZED_KEYS='https://raw.githubusercontent.com/dycw/authorized-keys/refs/heads/master/authorized_keys'
-uvx --from dycw-installer[cli]@latest set-up-keys "$(curl -fssL ${AUTHORIZED_KEYS})"
-uvx --from dycw-installer[cli]@latest set-up-ssh
+if ! [ -f "${HOME}/.ssh/authorized_keys" ]; then
+	AUTHORIZED_KEYS='https://raw.githubusercontent.com/dycw/authorized-keys/refs/heads/master/authorized_keys'
+	uvx --from dycw-installer[cli]@latest set-up-keys "$(curl -fssL ${AUTHORIZED_KEYS})"
+fi
+
+if ! [ -d "${HOME}/.ssh/config.d" ]; then
+	echo 2
+	uvx --from dycw-installer[cli]@latest set-up-ssh
+fi
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'ssh'"
