@@ -1,22 +1,15 @@
 #!/usr/bin/env fish
 
-if not status is-interactive
+if not status is-interactive; or not type -q bat
     exit
 end
 
 ###############################################################################
 
-if type -q bat
-    function cat
-        bat $argv
-    end
-    function catp
-        bat --style=plain $argv
-    end
+function cat
+    bat $argv
 end
 
-if type -q batwatch
-    function bw
-        batwatch -n0.5 $argv
-    end
+function catp
+    bat --style=plain $argv
 end
