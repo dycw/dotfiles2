@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 set -eu
-SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
 #### editor ###################################################################
 
@@ -27,6 +26,7 @@ fi
 
 #### path dotfiles ############################################################
 
+SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 PATH_DOTFILES="$(cd -- "$(dirname -- "$(dirname -- "${SCRIPT_DIR}")")")"
 export PATH_DOTFILES
 
