@@ -6,13 +6,13 @@ set -eu
 
 script_dir=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
-link_here() {
-	link_plain "${script_dir}/$1" "$2"
-}
-
-link_plain() {
+link() {
 	mkdir -p "$(dirname -- "$2")"
 	ln -sfn "$1" "${XDG_CONFIG_HOME:-${HOME}/.config}/$2"
+}
+
+link_here() {
+	link_plain "${script_dir}/$1" "$2"
 }
 
 ###############################################################################
@@ -25,5 +25,5 @@ link_here fzf.fish/conf.d/fzf.fish fish/conf.d/fzf-fish-plugin.fish
 for file in "${script_dir}"/fzf.fish/functions/*.fish; do
 	[ -e "$file" ] || continue
 	name=$(basename -- "${file}")
-	link_plain "${file}" "fish/functions/${name}"
+	link "${file}" "fish/functions/${name}"
 done
