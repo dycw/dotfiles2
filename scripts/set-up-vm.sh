@@ -28,7 +28,7 @@ EOF
 rm -rf /var/lib/apt/lists/*
 apt update
 apt full-upgrade -y
-apt install -y age bat btm build-essential curl direnv du-dust eza fd-find \
+apt install -y bat btm build-essential curl direnv du-dust eza fd-find \
 	fish fzf git git-delta jq just restic ripgrep rsync sd shellcheck shfmt \
 	starship sudo yq zoxide
 apt autoremove -y
