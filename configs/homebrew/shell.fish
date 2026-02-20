@@ -16,11 +16,6 @@ if test -d /opt/homebrew/bin
         if test -d (brew --prefix node)/bin
             fish_add_path (brew --prefix node)/bin
         end
-
-        # postgresql@17
-        if test -d (brew --prefix postgresql@17)/bin
-            fish_add_path (brew --prefix postgresql@17)/bin
-        end
     end
 
     # node
