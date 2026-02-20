@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+###############################################################################
+
 SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
 ###############################################################################
@@ -11,8 +13,8 @@ link() {
 
 ###############################################################################
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'curl'..."
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'eza'..."
 
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/curl.fish
+link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/eza.fish
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'curl'"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'eza'"

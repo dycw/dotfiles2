@@ -90,3 +90,11 @@ function cp
     command mkdir -p $mkdir_target
     command cp -frv $argv
 end
+
+# env
+function eg
+    if test (count $argv) -lt 1
+        echo "'eg' expected [1..) arguments PATTERN; got $(count $argv)" >&2; and return 1
+    end
+    env | sort | grep -i $argv
+end
