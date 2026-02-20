@@ -24,7 +24,7 @@ end
 
 function __fd_type
     if test (count $argv) -lt 1
-        echo "'__fd_base' expected [1..) arguments TYPE; got $(count $argv)" >&2; and return 1
+        echo "'__fd_type' expected [1..) arguments TYPE; got $(count $argv)" >&2; and return 1
     end
     fd --hidden --type=$argv[1] $argv[2..]
 end

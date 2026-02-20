@@ -15,19 +15,9 @@ if type -q batcat and not type -q bat
 end
 
 function cat
-    __bat $argv
+    bat $argv
 end
 
 function catp
-    __bat --style=plain $argv
-end
-
-function __bat
-    if type -q bat
-        bat $argv
-    else if type -q batcat
-        batcat $argv
-    else
-        echo "'__bat' expected 'bat' or 'batcat' to be available; got neither" >&2; and return 1
-    end
+    bat --style=plain $argv
 end
