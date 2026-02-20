@@ -39,16 +39,15 @@ function pyrtf
     end
 end
 
-function __pyright
-    if type -q pyright
-        pyright .
-    else if type -q uv
-        set -l args
-        if test -f .venv/bin/python
-            set args $args --pythonpath .venv/bin/python
-        end
-        uv tool run pyright $args .
-    else
-        echo "'__pyright' expected 'pyright' or 'uv' to be available; got neither" >&2; and return 1
+#### python ###################################################################
+
+function p3
+    python3 $argv
+end
+
+function p3pdb
+    if test (count $argv) -eq 0
+        echo "'p3pdb' expected [1..) arguments EXECUTABLE; got $(count $argv)" >&2; and return 1
     end
+    python -m pdb -c continue "$(which $argv[1])" argv[2..]
 end
