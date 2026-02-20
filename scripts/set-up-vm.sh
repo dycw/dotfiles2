@@ -29,9 +29,6 @@ apt install -y \
 	fish \
 	sudo yq zoxide
 
-chsh -s /usr/bin/fish
-chsh -s /usr/bin/fish derek
-
 #### shell hooks ##############################################################
 
 printf '%s\n' 'eval "$(direnv hook bash)"' >/etc/profile.d/direnv.sh
