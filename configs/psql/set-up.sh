@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
+
+###############################################################################
+
+link() {
+	mkdir -p "$(dirname -- "$2")"
+	ln -sfn "$1" "$2"
+}
+
+###############################################################################
+
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'psql'..."
+
+link "${SCRIPT_DIR}/psqlrc" /etc/postgresql-common/psqlrc
+
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'psql'"
