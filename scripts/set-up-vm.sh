@@ -27,7 +27,7 @@ EOF
 
 apt install -y \
 	fish \
-	starship sudo yq zoxide
+	sudo yq zoxide
 
 chsh -s /usr/bin/fish
 chsh -s /usr/bin/fish derek
