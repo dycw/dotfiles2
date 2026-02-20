@@ -25,14 +25,9 @@ EOF
 
 #### 'apt' installs ###########################################################
 
-rm -rf /var/lib/apt/lists/*
-apt update
-apt full-upgrade -y
-apt install -y eza fd-find \
-	fish jq just restic ripgrep rsync sd shellcheck shfmt \
+apt install -y \
+	fish restic ripgrep rsync sd shellcheck shfmt \
 	starship sudo yq zoxide
-apt autoremove -y
-apt clean
 
 chsh -s /usr/bin/fish
 chsh -s /usr/bin/fish derek
