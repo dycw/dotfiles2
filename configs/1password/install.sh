@@ -13,7 +13,7 @@ fi
 case "$1" in
 macmini)
 	echo "[$(date '+%Y-%m-%d %H:%M:%S')] Installing '1Password'..."
-	brew install 1password
+	brew install 1password --cask
 	;;
 *) ;;
 esac
