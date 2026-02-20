@@ -4,7 +4,7 @@ set -eu
 
 ###############################################################################
 
-if command -v mdfind && mdfind "kMDItemCFBundleIdentifier == 'com.1password.1password'"; then
+if command -v mdfind && mdfind "kMDItemCFBundleIdentifier == 'com.1password.1password'" >/dev/null 2>&1; then
 	echo "[$(date '+%Y-%m-%d %H:%M:%S')] '1Password' is already installed"
 	exit
 fi
