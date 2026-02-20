@@ -2,6 +2,8 @@
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
+###############################################################################
+
 link() {
 	home="$1"
 	target="${home}/.config/bottom/bottom.toml"
@@ -10,6 +12,8 @@ link() {
 	owner=$(stat -c '%U:%G' "${home}" 2>/dev/null || echo '')
 	[ -n "${owner}" ] && chown -h "${owner}" "${target}" 2>/dev/null || :
 }
+
+###############################################################################
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bottom'..."
 
