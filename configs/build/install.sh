@@ -42,6 +42,13 @@ macmini)
 		echo "[$(date '+%Y-%m-%d %H:%M:%S')] Installing 'automake'..."
 		brew install automake
 	fi
+
+	if command -v brew >/dev/null 2>&1 && brew --prefix libpq >/dev/null 2>&1; then
+		echo "[$(date '+%Y-%m-%d %H:%M:%S')] 'libpq' is already installed"
+	else
+		echo "[$(date '+%Y-%m-%d %H:%M:%S')] Installing 'libpq'..."
+		brew install libpq
+	fi
 	;;
 *) ;;
 esac
