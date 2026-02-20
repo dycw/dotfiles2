@@ -45,6 +45,11 @@ ${character}"""
   ssh_only = false
   ssh_symbol = '🌐'
 
+[localip]
+  disabled = false
+  format = '[${localipv4}]($style) '
+  ssh_only = false
+
 [nodejs]
   format = '[${symbol}](${style})'
   version_format = '${raw}'
