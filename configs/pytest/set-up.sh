@@ -14,6 +14,4 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'pytest'..."
 
-link env.sh fish/conf.d/pytest-env.fish
-link env.sh posix/pytest.sh
-link shell.fish fish/conf.d/pytest-shell.fish
+link shell.fish fish/conf.d/pytest.fish
