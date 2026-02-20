@@ -66,4 +66,10 @@ git clone --recurse-submodules https://github.com/queensberry-research/neovim.gi
 EOF
 ```
 
-go inside with `ssh -p 2222 derek@127.0.0.1`
+### Codex
+
+```
+sudo apt update
+sudo apt install -y nodejs npm
+sudo npm install -g @openai/codex
+```
