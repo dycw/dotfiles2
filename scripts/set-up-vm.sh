@@ -1,8 +1,10 @@
 #!/usr/bin/env sh
 # shellcheck disable=SC1091,SC2016
+
 set -eu
 
-# check system
+#### check system #############################################################
+
 if [ ! -r /etc/os-release ]; then
 	echo "'/etc/os-release' is not readable; exiting..." >&2
 	exit 1
@@ -13,14 +15,16 @@ if [ "${ID:-}" != debian ]; then
 	exit 1
 fi
 
-# fix 'apt' sources
+#### fix 'apt' sources ########################################################
+
 tee /etc/apt/sources.list >/dev/null <<'EOF'
 deb http://deb.debian.org/debian trixie main contrib non-free non-free-firmware
 deb http://deb.debian.org/debian trixie-updates main contrib non-free non-free-firmware
 deb http://security.debian.org/debian-security trixie-security main contrib non-free non-free-firmware
 EOF
 
-# 'apt' installs
+#### 'apt' installs ###########################################################
+
 rm -rf /var/lib/apt/lists/*
 apt update
 apt full-upgrade -y
@@ -34,7 +38,8 @@ chsh -s /usr/bin/fish
 chsh -s /usr/bin/fish derek
 usermod -aG sudo derek
 
-# shell hooks
+#### shell hooks ##############################################################
+
 printf '%s\n' 'eval "$(direnv hook bash)"' >/etc/profile.d/direnv.sh
 printf '%s\n' 'eval "$(fzf --bash)"' >/etc/profile.d/fzf.sh
 printf '%s\n' 'eval "$(starship init bash)"' >/etc/profile.d/starship.sh
@@ -45,22 +50,26 @@ printf '%s\n' 'fzf --fish | source' >/etc/fish/conf.d/fzf.fish
 printf '%s\n' 'starship init fish | source' >/etc/fish/conf.d/starship.fish
 printf '%s\n' 'zoxide init --cmd j fish | source' >/etc/fish/conf.d/zoxide.fish
 
-# install 'uv'
+#### install 'uv' #############################################################
+
 curl -LsSf https://astral.sh/uv/install.sh | sh
 . "${HOME}/.local/bin/env"
 
-# set up SSH
+#### set up SSH ###############################################################
+
 AUTHORIZED_KEYS='https://raw.githubusercontent.com/dycw/authorized-keys/refs/heads/master/authorized_keys'
 uvx --from dycw-installer[cli]@latest set-up-keys "$(curl -fssL ${AUTHORIZED_KEYS})"
 uvx --from dycw-installer[cli]@latest set-up-ssh
 uvx --from dycw-installer[cli]@latest set-up-sshd --permit-root-login
 
-# install & set up 'neovim'
+#### install & set up 'neovim' ################################################
+
 uvx --from dycw-installer[cli]@latest set-up-neovim
 rm -rf ~/.config/nvim
 git clone --recurse-submodules https://github.com/queensberry-research/neovim.git ~/.config/nvim
 
-# set up 'derek'
+#### set up 'derek' ###########################################################
+
 cp ~/.ssh/authorized_keys /home/derek/.ssh/authorized_keys
 su -s /bin/bash - derek <<'EOF'
 set -eu
@@ -73,5 +82,6 @@ rm -rf ~/.config/nvim
 git clone --recurse-submodules https://github.com/queensberry-research/neovim.git ~/.config/nvim
 EOF
 
-# exit
-echo "'set-up-vm' finished; exiting..." >&2
+#### exit #####################################################################
+
+echo "'set-up-vm' finished; exiting..."
