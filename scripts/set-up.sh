@@ -8,7 +8,7 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up '$(hostname)'..."
 
 configs="$(dirname -- "${SCRIPT_DIR}")/configs"
-find "${configs}" -type f -name 'set-up.sh' | while IFS= read -r script; do
+find "${configs}" -type f -name 'set-up.sh' | sort | while IFS= read -r script; do
 	sh "${script}"
 done
 
