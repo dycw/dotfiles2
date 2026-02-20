@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-###############################################################################
-
 SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
 ###############################################################################
@@ -13,8 +11,8 @@ link() {
 
 ###############################################################################
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'fish'..."
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'homebrew'..."
 
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/fish.fish
+link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/homebrew.fish
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'fish'"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'homebrew'"
