@@ -16,6 +16,17 @@ debian)
 			sudo apt install -y build-essential
 		fi
 	fi
+
+	if command -v pg_config >/dev/null 2>&1; then
+		echo "[$(date '+%Y-%m-%d %H:%M:%S')] 'libpq-dev' is already installed"
+	else
+		echo "[$(date '+%Y-%m-%d %H:%M:%S')] Installing 'libpq-dev'..."
+		if [ "$(id -u)" -eq 0 ]; then
+			apt install -y libpq-dev
+		else
+			sudo apt install -y libpq-dev
+		fi
+	fi
 	;;
 macmini)
 	if command -v autoconf >/dev/null 2>&1; then
