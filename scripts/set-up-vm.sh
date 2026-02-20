@@ -1,17 +1,5 @@
 #!/usr/bin/env sh
 # shellcheck disable=SC1091,SC2016
-set -eu
-
-# check system
-if [ ! -r /etc/os-release ]; then
-	echo "'/etc/os-release' is not readable; exiting..." >&2
-	exit 1
-fi
-. /etc/os-release
-if [ "${ID:-}" != debian ]; then
-	echo "'ID' (${ID:-}) is not Debian; exiting..." >&2
-	exit 1
-fi
 
 # fix 'apt' sources
 tee /etc/apt/sources.list >/dev/null <<'EOF'
@@ -57,20 +45,15 @@ uvx --from dycw-installer[cli]@latest set-up-sshd --permit-root-login
 
 # install & set up 'neovim'
 uvx --from dycw-installer[cli]@latest set-up-neovim
-rm -rf ~/.config/nvim
 git clone --recurse-submodules https://github.com/queensberry-research/neovim.git ~/.config/nvim
+nvim --headless +Lazy! sync +qa
 
 # set up 'derek'
-su -s /bin/bash - derek <<'EOF'
-set -eu
+su - derek <<'EOF'
 curl -LsSf https://astral.sh/uv/install.sh | sh
 source ${HOME}/.local/bin/env
 SSH_KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBGOo3yytWfRyOhsWIg4wR/s6wbxWM+MIWLV0EnlkJK'
 uvx --from dycw-installer[cli]@latest set-up-keys "${SSH_KEY}"
 uvx --from dycw-installer[cli]@latest set-up-ssh
-rm -rf ~/.config/nvim
 git clone --recurse-submodules https://github.com/queensberry-research/neovim.git ~/.config/nvim
 EOF
-
-# exit
-echo "'set-up-vm' finished; exiting..." >&2
