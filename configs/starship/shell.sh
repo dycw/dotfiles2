@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 export STARSHIP_CONFIG='/etc/starship.toml'
 
