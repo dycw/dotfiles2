@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-if ! status is-interactive
+if not status is-interactive
     exit
 end
 

@@ -1,13 +1,11 @@
 #!/usr/bin/env fish
 
-direnv hook fish | source
-
-if ! status is-interactive
+if not status is-interactive; or not type -q direnv
     exit
 end
 
-if type -q direnv
-    function dea
-        direnv allow .
-    end
+direnv hook fish | source
+
+function dea
+    direnv allow .
 end
