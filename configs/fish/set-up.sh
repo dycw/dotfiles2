@@ -14,6 +14,8 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'fish'..."
 
+chsh -s /usr/bin/fish
+
 link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/fish.fish
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'fish'"

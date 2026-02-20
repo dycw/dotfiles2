@@ -31,7 +31,6 @@ apt install -y \
 
 chsh -s /usr/bin/fish
 chsh -s /usr/bin/fish derek
-usermod -aG sudo derek
 
 #### shell hooks ##############################################################
 
