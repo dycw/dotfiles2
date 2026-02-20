@@ -21,8 +21,6 @@ link_home() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bottom'..."
 
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/bottom.fish
-
 link_home "${HOME}"
 if [ -d /home ]; then
 	for dir in /home/*; do
