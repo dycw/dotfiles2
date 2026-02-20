@@ -33,6 +33,18 @@ configs="$(dirname -- "$(dirname -- "${SCRIPT_DIR}")")"/configs
 
 case "${system:-}" in
 debian)
+	sh "${configs}"/sudo/install.sh "${system}"
+	if [ "$(id -u)" -eq 0 ]; then
+		apt update
+		apt full-upgrade -y
+		apt autoremove -y
+		apt clean
+	else
+		sudo apt update
+		sudo apt full-upgrade -y
+		sudo apt autoremove -y
+		sudo apt clean
+	fi
 	sh "${configs}"/curl/install.sh "${system}"
 	;;
 macmini)

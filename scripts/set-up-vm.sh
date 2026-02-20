@@ -23,42 +23,8 @@ deb http://deb.debian.org/debian trixie-updates main contrib non-free non-free-f
 deb http://security.debian.org/debian-security trixie-security main contrib non-free non-free-firmware
 EOF
 
-#### 'apt' installs ###########################################################
-
-rm -rf /var/lib/apt/lists/*
-apt update
-apt full-upgrade -y
-apt install -y eza fd-find \
-	fish jq just restic ripgrep rsync sd shellcheck shfmt \
-	starship sudo yq zoxide
-apt autoremove -y
-apt clean
-
-chsh -s /usr/bin/fish
-chsh -s /usr/bin/fish derek
-usermod -aG sudo derek
-
-#### shell hooks ##############################################################
-
-printf '%s\n' 'eval "$(direnv hook bash)"' >/etc/profile.d/direnv.sh
-printf '%s\n' 'eval "$(fzf --bash)"' >/etc/profile.d/fzf.sh
-printf '%s\n' 'eval "$(starship init bash)"' >/etc/profile.d/starship.sh
-printf '%s\n' 'eval "$(zoxide init --cmd j bash)"' >/etc/profile.d/zoxide.sh
-
-printf '%s\n' 'direnv hook fish | source' >/etc/fish/conf.d/direnv.fish
-printf '%s\n' 'fzf --fish | source' >/etc/fish/conf.d/fzf.fish
-printf '%s\n' 'starship init fish | source' >/etc/fish/conf.d/starship.fish
-printf '%s\n' 'zoxide init --cmd j fish | source' >/etc/fish/conf.d/zoxide.fish
-
-#### install 'uv' #############################################################
-
-curl -LsSf https://astral.sh/uv/install.sh | sh
-. "${HOME}/.local/bin/env"
-
 #### set up SSH ###############################################################
 
-AUTHORIZED_KEYS='https://raw.githubusercontent.com/dycw/authorized-keys/refs/heads/master/authorized_keys'
-uvx --from dycw-installer[cli]@latest set-up-keys "$(curl -fssL ${AUTHORIZED_KEYS})"
 uvx --from dycw-installer[cli]@latest set-up-ssh
 uvx --from dycw-installer[cli]@latest set-up-sshd --permit-root-login
 
