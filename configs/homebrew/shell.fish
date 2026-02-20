@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-if not status is-interactive; or not type -q bat
+if not status is-interactive
     exit
 end
 
