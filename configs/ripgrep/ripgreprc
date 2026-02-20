@@ -1,0 +1,6 @@
+--follow
+--glob=!.git/*
+--hidden
+--max-columns=100
+--max-columns-preview
+--smart-case

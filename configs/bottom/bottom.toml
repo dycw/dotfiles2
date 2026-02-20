@@ -1,0 +1,5 @@
+[flags]
+  cpu_left_legend = true
+  memory_legend = "bottom-left"
+  network_legend = "bottom-left"
+  process_memory_as_value = true

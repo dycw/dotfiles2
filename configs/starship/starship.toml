@@ -1,0 +1,73 @@
+format = """
+${time}\
+${directory}\
+${git_branch}${git_commit}${git_state}${git_metrics}${git_status}\
+${docker_context}\
+${username}${hostname}${localip}${shlvl}\
+${c}${cmake}${cobol}${daml}${dart}${deno}${dotnet}${elixir}${elm}${erlang}${fennel}${gleam}${golang}${guix_shell}${haskell}${haxe}${helm}${java}${julia}${kotlin}${gradle}${lua}${nim}${nodejs}${ocaml}${opa}${perl}${php}${pulumi}${purescript}${python}${quarto}${raku}${rlang}${red}${ruby}${rust}${scala}${solidity}${swift}${terraform}${typst}${vlang}${vagrant}${zig}\
+${buf}${nix_shell}${conda}${meson}${spack}\
+${package}\
+${memory_usage}\
+${aws}${gcloud}${openstack}${azure}\
+${nats}\
+${direnv}${env_var}\
+${mise}\
+${crystal}${custom}${sudo}\
+${cmd_duration}${line_break}\
+${jobs}\
+${battery}${status}\
+${os}\
+${container}${netns}${shell}\
+${character}"""
+
+[[battery.display]]
+  threshold = 20
+
+[cmd_duration]
+  format = '[${duration}](${style}) '
+
+[directory]
+  truncate_to_repo = false
+  truncation_length = 8
+  truncation_symbol = './'
+
+[git_branch]
+  format = '[${symbol}${branch}](${style}) '
+  symbol = ''
+  truncation_length = 20
+
+[golang]
+  format = '[${symbol}](${style})'
+  version_format = '${raw}'
+
+[hostname]
+  format = '[${ssh_symbol}${hostname}](${style}) '
+  ssh_only = false
+  ssh_symbol = '🌐'
+
+[nodejs]
+  format = '[${symbol}](${style})'
+  version_format = '${raw}'
+
+[package]
+  format = '[${symbol}${version}]($style) '
+  symbol = '📦'
+  version_format = '${raw}'
+
+[python]
+  format = '[${symbol}](${style})'
+  version_format = '${raw}'
+
+[rust]
+  format = '[${symbol}](${style})'
+  version_format = '${raw}'
+
+[time]
+  disabled = false
+  format = '[${time}](${style}) '
+  style = 'bold blue'
+  time_format = '%F %T'
+
+[username]
+  format = '[${user}](${style}) '
+  show_always = true
