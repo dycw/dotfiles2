@@ -26,7 +26,7 @@ case "${system:-}" in
 debian) sh "${SCRIPT_DIR}"/install-debian.sh ;;
 macmini)
 	if command -v brew >/dev/null 2>&1; then
-		echo "[$(date '+%Y-%m-%d %H:%M:%S')] 'brew' is already installed..."
+		echo "[$(date '+%Y-%m-%d %H:%M:%S')] 'brew' is already installed"
 	else
 		echo "[$(date '+%Y-%m-%d %H:%M:%S')] Installing 'brew'..."
 
