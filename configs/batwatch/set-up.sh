@@ -11,10 +11,8 @@ link() {
 
 ###############################################################################
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'ripgrep'..."
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'batwatch'..."
 
-link "${SCRIPT_DIR}/env.sh" /etc/fish/conf.d/ripgrep.fish
-link "${SCRIPT_DIR}/env.sh" /etc/profile.d/ripgrep.sh
-link "${SCRIPT_DIR}/ripgreprc" /etc/ripgrep/ripgreprc
+link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/batwatch.fish
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'ripgrep'"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'batwatch'"

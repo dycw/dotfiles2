@@ -19,7 +19,12 @@ function ....
 end
 
 function cdconfig
-    cd $XDG_CONFIG_HOME
+    if set -q XDG_CONFIG_HOME
+        set -l path $XDG_CONFIG_HOME
+    else
+        set -l path $HOME/.config
+    end
+    cd $path
 end
 
 function cddb
