@@ -1,13 +1,13 @@
 #!/usr/bin/env sh
 
 set -eu
-SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
 ###############################################################################
 
 link() {
 	mkdir -p "$(dirname -- "$2")"
-	ln -sfn "$1" "$2"
+	script_dir=$(cd -- "$(dirname -- "$0")" && pwd -P)
+	ln -sfn "${script_dir}1" "${XDG_CONFIG_HOME:-${HOME}/.config}/$2"
 }
 
 ###############################################################################
@@ -30,4 +30,4 @@ esac
 if command -v fish >/dev/null 2>&1 && [ "${USER_SHELL}" != "$(which fish)" ]; then
 	chsh -s "$(which fish)"
 fi
-link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/fish.fish"
+link shell.fish fish/conf.d/fish.fish
