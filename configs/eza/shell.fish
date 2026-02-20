@@ -1,9 +1,5 @@
 #!/usr/bin/env fish
 
-if ! status is-interactive
-    exit
-end
-
 if type -q eza
     function l
         la --git-ignore $argv

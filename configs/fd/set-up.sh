@@ -23,6 +23,8 @@ link_home() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'fd'..."
 
+link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/fd.fish
+
 link_home "${HOME}"
 if [ -d /home ]; then
 	for dir in /home/*; do

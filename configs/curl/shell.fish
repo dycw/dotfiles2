@@ -1,9 +1,5 @@
 #!/usr/bin/env fish
 
-if ! status is-interactive
-    exit
-end
-
 if type -q curl
     function curl-sh
         if test (count $argv) -lt 1

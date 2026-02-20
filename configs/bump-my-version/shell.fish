@@ -1,9 +1,5 @@
 #!/usr/bin/env fish
 
-if ! status is-interactive
-    exit
-end
-
 if type -q bump-my-version
     function bump-patch
         bump-my-version bump patch

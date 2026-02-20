@@ -1,9 +1,5 @@
 #!/usr/bin/env fish
 
-if ! status is-interactive
-    exit
-end
-
 if type -q asciinema
     function asciinema-record
         set -l dir

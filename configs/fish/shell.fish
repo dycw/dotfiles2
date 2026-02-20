@@ -1,9 +1,5 @@
 #!/usr/bin/env fish
 
-if ! status is-interactive
-    exit
-end
-
 # cd
 function ..
     cd ..
@@ -97,4 +93,24 @@ function eg
         echo "'eg' expected [1..) arguments PATTERN; got $(count $argv)" >&2; and return 1
     end
     env | sort | grep -i $argv
+end
+
+# fish
+fish_vi_key_bindings
+
+function fish-config
+    $EDITOR $HOME/dotfiles/fish/config.fish
+end
+function fish-env
+    $EDITOR $HOME/dotfiles/fish/env.fish
+end
+function fish-reload
+    for file in /etc/fish/**/*.fish
+        echo "Reloading $file..."
+        source $file
+    end
+    if set -q INFRA_FISH_CONFIG; and test -f $INFRA_FISH_CONFIG
+        echo "Reloading $INFRA_FISH_CONFIG..."
+        source $INFRA_FISH_CONFIG
+    end
 end
