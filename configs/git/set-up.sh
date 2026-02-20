@@ -17,5 +17,6 @@ echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'git'..."
 
 link "${SCRIPT_DIR}/config" /etc/gitconfig
 link "${SCRIPT_DIR}/ignore" /etc/git/ignore
+link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/git.fish
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'git'"
