@@ -13,8 +13,9 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'wezterm'..."
 
-link "${SCRIPT_DIR}/shell.sh" /etc/fish/conf.d/wezterm.fish
-link "${SCRIPT_DIR}/shell.sh" /etc/profile.d/wezterm.sh
+link "${SCRIPT_DIR}/env.sh" /etc/fish/conf.d/wezterm-env.fish
+link "${SCRIPT_DIR}/env.sh" /etc/profile.d/wezterm.sh
+link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/wezterm-shell.fish
 link "${SCRIPT_DIR}/wezterm.lua" /etc/wezterm/wezterm.lua
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'wezterm'"
