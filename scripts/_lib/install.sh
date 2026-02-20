@@ -33,6 +33,7 @@ configs="$(dirname -- "$(dirname -- "${SCRIPT_DIR}")")"/configs
 
 case "${system:-}" in
 debian)
+	sh "${configs}"/sudo/install.sh "${system}"
 	if [ "$(id -u)" -eq 0 ]; then
 		apt update
 		apt full-upgrade -y
