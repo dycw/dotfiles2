@@ -30,4 +30,5 @@ esac
 if command -v fish >/dev/null 2>&1 && [ "${USER_SHELL}" != "$(which fish)" ]; then
 	chsh -s "$(which fish)"
 fi
+
 link shell.fish fish/conf.d/fish.fish
