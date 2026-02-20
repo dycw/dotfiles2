@@ -2,9 +2,6 @@
 # shellcheck disable=SC1091,SC2016
 
 set -eu
-if ! case $- in *i*) true ;; *) false ;; esac then
-	exit 0
-fi
 
 #### start ####################################################################
 
