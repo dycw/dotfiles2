@@ -27,7 +27,7 @@ Linux)
 	;;
 esac
 
-if command -v fish >/dev/null 2>&1 && ${USER_SHELL} != "$(which fish)"; then
+if command -v fish >/dev/null 2>&1 && [ "${USER_SHELL}" != "$(which fish)" ]; then
 	chsh -s "$(which fish)"
 fi
 link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/fish.fish"
