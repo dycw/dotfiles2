@@ -9,17 +9,14 @@ if command -v tmux >/dev/null 2>&1; then
 	exit
 fi
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Installing 'tmux'..."
 case "$1" in
 debian)
+	echo "[$(date '+%Y-%m-%d %H:%M:%S')] Installing 'tmux'..."
 	if [ "$(id -u)" -eq 0 ]; then
 		apt install -y tmux
 	else
 		sudo apt install -y tmux
 	fi
 	;;
-*)
-	echo "Unsupported system '$1'; exiting..." >&2
-	exit 1
-	;;
+*) ;;
 esac
