@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+set -l SCRIPT_DIR (cd (dirname (status filename)); and pwd -P)
+
 #### editor ###################################################################
 
 if type -q nvim
@@ -21,6 +23,10 @@ end
 if test -d $HOME/.local/bin
     fish_add_path $HOME/.local/bin
 end
+
+#### path dotfiles ############################################################
+
+set -gx PATH_DOTFILES (cd "$SCRIPT_DIR/../.."; and pwd -P)
 
 #### swap files ###############################################################
 

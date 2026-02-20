@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 set -eu
+SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
 #### editor ###################################################################
 
@@ -23,6 +24,11 @@ fi
 if [ -d "${HOME}"/.local/bin ]; then
 	export PATH="${HOME}"/.local/bin"${PATH:+:${PATH}}"
 fi
+
+#### path dotfiles ############################################################
+
+PATH_DOTFILES="$(cd -- "$(dirname -- "$(dirname -- "${SCRIPT_DIR}")")")"
+export PATH_DOTFILES
 
 #### swap files ###############################################################
 
