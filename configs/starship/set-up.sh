@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+echo "Se"
 SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
 link() {
