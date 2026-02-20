@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 
+if [ -z "${PS1-}" ] || ! command -v starship >/dev/null 2>&1; then
+	exit
+fi
+
+###############################################################################
+
 export STARSHIP_CONFIG='/etc/starship.toml'
 
 if [ -n "${BASH_VERSION-}" ]; then
