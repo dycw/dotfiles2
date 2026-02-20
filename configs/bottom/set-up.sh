@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bottom'..."
-
 SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
 link() {
@@ -13,10 +11,9 @@ link() {
 	[ -n "${owner}" ] && chown -h "${owner}" "${target}" 2>/dev/null || :
 }
 
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bottom'..."
+
 link "${HOME}"
-if [ -d /root ]; then
-	link /root
-fi
 if [ -d /home ]; then
 	for dir in /home/*; do
 		link "${dir}"
