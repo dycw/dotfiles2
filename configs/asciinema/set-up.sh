@@ -11,8 +11,8 @@ link() {
 
 ###############################################################################
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bat'..."
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'asciinema'..."
 
-link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/bat.fish
+link "${SCRIPT_DIR}/shell.fish" /etc/fish/conf.d/asciinema.fish
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'bat'"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'asciinema'"

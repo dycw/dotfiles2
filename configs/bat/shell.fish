@@ -12,3 +12,9 @@ if type -q bat
         bat --style=plain $argv
     end
 end
+
+if type -q batwatch
+    function bw
+        batwatch -n0.5 $argv
+    end
+end
