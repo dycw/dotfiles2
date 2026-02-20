@@ -1,0 +1,1658 @@
+{
+  "# noqa: T201": {
+    "body": "# noqa: T201\n",
+    "prefix": "noqa-t201"
+  },
+  "@dataclass(kw_only)": {
+    "body": "@dataclass(kw_only=True)\nclass ${1:ClassName}:\n    ${2:field}: ${3:annotation}\n\n",
+    "prefix": "dataclass-k"
+  },
+  "@dataclass(kw_only, slot)": {
+    "body": "@dataclass(kw_only=True, slots=True)\nclass ${1:ClassName}:\n    ${2:field}: ${3:annotation}\n\n",
+    "prefix": "dataclass-ks"
+  },
+  "@dataclass(order, unsafe_hash, kw_only)": {
+    "body": "@dataclass(order=True, unsafe_hash=True, kw_only=True)\nclass ${1:ClassName}:\n    ${2:field}: ${3:annotation}\n\n",
+    "prefix": "dataclass-ohk"
+  },
+  "@dataclass(order, unsafe_hash, kw_only, slots)": {
+    "body": "@dataclass(order=True, unsafe_hash=True, kw_only=True, slots=True)\nclass ${1:ClassName}:\n    ${2:field}: ${3:annotation}\n\n",
+    "prefix": "dataclass-ohks"
+  },
+  "@mark.only": {
+    "body": "@mark.only\n",
+    "prefix": "mo"
+  },
+  "@mark.parametrize": {
+    "body": "@mark.parametrize(\"${1:argname}\", [param(${2:argvalue})])\n",
+    "prefix": "mp"
+  },
+  "@mark.repeat(10)": {
+    "body": "@mark.repeat(10)\n",
+    "prefix": "mr10"
+  },
+  "@mark.skip": {
+    "body": "@mark.skip\n",
+    "prefix": "ms"
+  },
+  "@mark.xfail": {
+    "body": "@mark.xfail\n",
+    "prefix": "mx"
+  },
+  "@settings(filter_too_much)": {
+    "body": "@settings(suppress_health_check={HealthCheck.filter_too_much})\n",
+    "prefix": "settings-filter-too-much"
+  },
+  "@settings(function_scoped_fixture)": {
+    "body": "@settings(suppress_health_check={HealthCheck.function_scoped_fixture})\n",
+    "prefix": "settings-function-scoped-fixture"
+  },
+  "@settings(generate)": {
+    "body": "@settings(phases={Phase.generate})\n",
+    "prefix": "settings-generate"
+  },
+  "@settings(max_examples)": {
+    "body": "@settings(max_examples=1)\n",
+    "prefix": "settings-max-examples"
+  },
+  "_LOGGER = to_logger(__name__)": {
+    "body": "from utilities.core import to_logger\n\n_LOGGER = to_logger(__name__)\n\n",
+    "prefix": "logger-name"
+  },
+  "assert 0, '!!!'": {
+    "body": "assert 0, '!!!'\n",
+    "prefix": "a0"
+  },
+  "assert 0, pretty_repr(locals())": {
+    "body": "from rich.pretty import pretty_repr\n\nassert 0, pretty_repr(locals())\n",
+    "prefix": "a1"
+  },
+  "breakpoint": {
+    "body": "breakpoint()\n",
+    "prefix": "bp"
+  },
+  "case never:": {
+    "body": "case never:\n    assert_never(never)\n",
+    "prefix": "case-never"
+  },
+  "class TestClass:": {
+    "body": "class Test${1:ClassName}:\n    def test_${2:method_name}(self, $3) -> None:\n        ${4:pass}\n\n",
+    "prefix": "class-test"
+  },
+  "from __future__ import annotations": {
+    "body": "from __future__ import annotations\n",
+    "prefix": "fu-annotations"
+  },
+  "from abc import ABC": {
+    "body": "from abc import ABC\n",
+    "prefix": "ab-abc"
+  },
+  "from abc import abstractmethod": {
+    "body": "from abc import abstractmethod\n",
+    "prefix": "ab-abstractmethod"
+  },
+  "from argparse import ArgumentDefaultsHelpFormatter": {
+    "body": "from argparse import ArgumentDefaultsHelpFormatter\n",
+    "prefix": "ar-argument-defaults-help-formatter"
+  },
+  "from argparse import ArgumentParser": {
+    "body": "from argparse import ArgumentParser\n",
+    "prefix": "ar-argument-parser"
+  },
+  "from asyncio import Event": {
+    "body": "from asyncio import Event\n",
+    "prefix": "as-event"
+  },
+  "from asyncio import Lock": {
+    "body": "from asyncio import Lock\n",
+    "prefix": "as-lock"
+  },
+  "from asyncio import Queue": {
+    "body": "from asyncio import Queue\n",
+    "prefix": "as-queue"
+  },
+  "from asyncio import Task": {
+    "body": "from asyncio import Task\n",
+    "prefix": "as-task"
+  },
+  "from asyncio import TaskGroup": {
+    "body": "from asyncio import TaskGroup\n",
+    "prefix": "as-task-group"
+  },
+  "from asyncio import create_task": {
+    "body": "from asyncio import create_task\n",
+    "prefix": "as-create-task"
+  },
+  "from asyncio import get_event_loop": {
+    "body": "from asyncio import get_event_loop\n",
+    "prefix": "as-get-event-loop"
+  },
+  "from asyncio import run": {
+    "body": "from asyncio import run\n",
+    "prefix": "as-run"
+  },
+  "from asyncio import sleep": {
+    "body": "from asyncio import sleep\n",
+    "prefix": "as-sleep"
+  },
+  "from base64 import b64decode": {
+    "body": "from base64 import b64decode\n",
+    "prefix": "ba-b64-decode"
+  },
+  "from base64 import b64encode": {
+    "body": "from base64 import b64encode\n",
+    "prefix": "ba-b64-encode"
+  },
+  "from beartype import beartype": {
+    "body": "from beartype import beartype\n",
+    "prefix": "be-beartype"
+  },
+  "from bidict import bidict": {
+    "body": "from bidict import bidict\n",
+    "prefix": "bi-bidict"
+  },
+  "from cachetools.func import ttl_cache": {
+    "body": "from cachetools.func import ttl_cache\n",
+    "prefix": "ca-ttl-cache"
+  },
+  "from click import argument": {
+    "body": "from click import argument\n",
+    "prefix": "cl-argument"
+  },
+  "from click import command": {
+    "body": "from click import command\n",
+    "prefix": "cl-command"
+  },
+  "from click import group": {
+    "body": "from click import group\n",
+    "prefix": "cl-group"
+  },
+  "from click import option": {
+    "body": "from click import option\n",
+    "prefix": "cl-option"
+  },
+  "from click import version_option": {
+    "body": "from click import version_option\n",
+    "prefix": "cl-version-option"
+  },
+  "from click.testing import CliRunner": {
+    "body": "from click.testing import CliRunner\n",
+    "prefix": "cl-cli-runner"
+  },
+  "from collections import Counter": {
+    "body": "from collections import Counter\n",
+    "prefix": "co-counter"
+  },
+  "from collections import deque": {
+    "body": "from collections import deque\n",
+    "prefix": "co-deque"
+  },
+  "from collections.abc import Awaitable": {
+    "body": "from collections.abc import Awaitable\n",
+    "prefix": "co-awaitable"
+  },
+  "from collections.abc import Callable": {
+    "body": "from collections.abc import Callable\n",
+    "prefix": "co-callable"
+  },
+  "from collections.abc import Iterable": {
+    "body": "from collections.abc import Iterable\n",
+    "prefix": "co-iterable"
+  },
+  "from collections.abc import Iterator": {
+    "body": "from collections.abc import Iterator\n",
+    "prefix": "co-iterator"
+  },
+  "from collections.abc import Mapping": {
+    "body": "from collections.abc import Mapping\n",
+    "prefix": "co-mapping"
+  },
+  "from collections.abc import Sequence": {
+    "body": "from collections.abc import Sequence\n",
+    "prefix": "co-sequence"
+  },
+  "from collections.abc import Set as AbstractSet": {
+    "body": "from collections.abc import Set as AbstractSet\n",
+    "prefix": "co-abstract-set"
+  },
+  "from contextlib import AsyncExitStack": {
+    "body": "from contextlib import AsyncExitStack\n",
+    "prefix": "co-async-exit-stack"
+  },
+  "from contextlib import ExitStack": {
+    "body": "from contextlib import ExitStack\n",
+    "prefix": "co-exit-stack"
+  },
+  "from contextlib import asynccontextmanager": {
+    "body": "from contextlib import asynccontextmanager\n",
+    "prefix": "co-asynccontextmanager"
+  },
+  "from contextlib import contextmanager": {
+    "body": "from contextlib import contextmanager\n",
+    "prefix": "co-contextmanager"
+  },
+  "from contextlib import redirect_stderr": {
+    "body": "from contextlib import redirect_stderr\n",
+    "prefix": "co-redirect-stderr"
+  },
+  "from contextlib import redirect_stdout": {
+    "body": "from contextlib import redirect_stdout\n",
+    "prefix": "co-redirect-stdout"
+  },
+  "from contextlib import suppress": {
+    "body": "from contextlib import suppress\n",
+    "prefix": "co-suppress"
+  },
+  "from dataclasses import InitVar": {
+    "body": "from dataclasses import InitVar\n",
+    "prefix": "da-init-var"
+  },
+  "from dataclasses import asdict": {
+    "body": "from dataclasses import asdict\n",
+    "prefix": "da-asdict"
+  },
+  "from dataclasses import astuple": {
+    "body": "from dataclasses import astuple\n",
+    "prefix": "da-astuple"
+  },
+  "from dataclasses import dataclass": {
+    "body": "from dataclasses import dataclass\n",
+    "prefix": "da-dataclass"
+  },
+  "from dataclasses import field": {
+    "body": "from dataclasses import field\n",
+    "prefix": "da-field"
+  },
+  "from dataclasses import replace": {
+    "body": "from dataclasses import replace\n",
+    "prefix": "da-replace"
+  },
+  "from enum import Enum": {
+    "body": "from enum import Enum\n",
+    "prefix": "en-enum"
+  },
+  "from enum import StrEnum": {
+    "body": "from enum import StrEnum\n",
+    "prefix": "en-str-enum"
+  },
+  "from enum import auto": {
+    "body": "from enum import auto\n",
+    "prefix": "en-auto"
+  },
+  "from enum import unique": {
+    "body": "from enum import unique\n",
+    "prefix": "en-unique"
+  },
+  "from frozendict import frozendict": {
+    "body": "from frozendict import frozendict\n",
+    "prefix": "fr-frozendict"
+  },
+  "from functools import cached_property": {
+    "body": "from functools import cached_property\n",
+    "prefix": "fu-cached-property"
+  },
+  "from functools import partial": {
+    "body": "from functools import partial\n",
+    "prefix": "fu-partial"
+  },
+  "from functools import reduce": {
+    "body": "from functools import reduce\n",
+    "prefix": "fu-reduce"
+  },
+  "from functools import total_ordering": {
+    "body": "from functools import total_ordering\n",
+    "prefix": "fu-total-ordering"
+  },
+  "from functools import wraps": {
+    "body": "from functools import wraps\n",
+    "prefix": "fu-wraps"
+  },
+  "from getpass import getuser": {
+    "body": "from getpass import getuser\n",
+    "prefix": "ge-getuser"
+  },
+  "from humanize import naturaldelta": {
+    "body": "from humanize import naturaldelta\n",
+    "prefix": "hu-naturaldelta"
+  },
+  "from humanize import naturaltime": {
+    "body": "from humanize import naturaltime\n",
+    "prefix": "hu-naturaltime"
+  },
+  "from hypothesis import HealthCheck": {
+    "body": "from hypothesis import HealthCheck\n",
+    "prefix": "hy-health-check"
+  },
+  "from hypothesis import Phase": {
+    "body": "from hypothesis import Phase\n",
+    "prefix": "hy-phase"
+  },
+  "from hypothesis import assume": {
+    "body": "from hypothesis import assume\n",
+    "prefix": "hy-assume"
+  },
+  "from hypothesis import given": {
+    "body": "from hypothesis import given\n",
+    "prefix": "hy-given"
+  },
+  "from hypothesis import reproduce_failure": {
+    "body": "from hypothesis import reproduce_failure\n",
+    "prefix": "hy-reproduce-failure"
+  },
+  "from hypothesis import settings": {
+    "body": "from hypothesis import settings\n",
+    "prefix": "hy-settings"
+  },
+  "from hypothesis.errors import InvalidArgument": {
+    "body": "from hypothesis.errors import InvalidArgument\n",
+    "prefix": "hy-invalid-argument"
+  },
+  "from hypothesis.strategies import DataObject": {
+    "body": "from hypothesis.strategies import DataObject\n",
+    "prefix": "hy-data-object"
+  },
+  "from hypothesis.strategies import DrawFn": {
+    "body": "from hypothesis.strategies import DrawFn\n",
+    "prefix": "hy-draw-fn"
+  },
+  "from hypothesis.strategies import binary": {
+    "body": "from hypothesis.strategies import binary\n",
+    "prefix": "hy-binary"
+  },
+  "from hypothesis.strategies import booleans": {
+    "body": "from hypothesis.strategies import booleans\n",
+    "prefix": "hy-booleans"
+  },
+  "from hypothesis.strategies import builds": {
+    "body": "from hypothesis.strategies import builds\n",
+    "prefix": "hy-builds"
+  },
+  "from hypothesis.strategies import composite": {
+    "body": "from hypothesis.strategies import composite\n",
+    "prefix": "hy-composite"
+  },
+  "from hypothesis.strategies import data": {
+    "body": "from hypothesis.strategies import data\n",
+    "prefix": "hy-data"
+  },
+  "from hypothesis.strategies import dates": {
+    "body": "from hypothesis.strategies import dates\n",
+    "prefix": "hy-dates"
+  },
+  "from hypothesis.strategies import datetimes": {
+    "body": "from hypothesis.strategies import datetimes\n",
+    "prefix": "hy-datetimes"
+  },
+  "from hypothesis.strategies import floats": {
+    "body": "from hypothesis.strategies import floats\n",
+    "prefix": "hy-floats"
+  },
+  "from hypothesis.strategies import integers": {
+    "body": "from hypothesis.strategies import integers\n",
+    "prefix": "hy-integers"
+  },
+  "from hypothesis.strategies import just": {
+    "body": "from hypothesis.strategies import just\n",
+    "prefix": "hy-just"
+  },
+  "from hypothesis.strategies import lists": {
+    "body": "from hypothesis.strategies import lists\n",
+    "prefix": "hy-lists"
+  },
+  "from hypothesis.strategies import none": {
+    "body": "from hypothesis.strategies import none\n",
+    "prefix": "hy-none"
+  },
+  "from hypothesis.strategies import permutations": {
+    "body": "from hypothesis.strategies import permutations\n",
+    "prefix": "hy-permutations"
+  },
+  "from hypothesis.strategies import randoms": {
+    "body": "from hypothesis.strategies import randoms\n",
+    "prefix": "hy-randoms"
+  },
+  "from hypothesis.strategies import sampled_from": {
+    "body": "from hypothesis.strategies import sampled_from\n",
+    "prefix": "hy-sampled-from"
+  },
+  "from hypothesis.strategies import sets": {
+    "body": "from hypothesis.strategies import sets\n",
+    "prefix": "hy-sets"
+  },
+  "from hypothesis.strategies import tuples": {
+    "body": "from hypothesis.strategies import tuples\n",
+    "prefix": "hy-tuples"
+  },
+  "from ib_async import CommissionReport": {
+    "body": "from ib_async import CommissionReport\n",
+    "prefix": "ib-commission-report"
+  },
+  "from ib_async import ContFuture": {
+    "body": "from ib_async import ContFuture\n",
+    "prefix": "ib-cont-future"
+  },
+  "from ib_async import Contract": {
+    "body": "from ib_async import Contract\n",
+    "prefix": "ib-contract"
+  },
+  "from ib_async import ContractDetails": {
+    "body": "from ib_async import ContractDetails\n",
+    "prefix": "ib-contract-details"
+  },
+  "from ib_async import Crypto": {
+    "body": "from ib_async import Crypto\n",
+    "prefix": "ib-crypto"
+  },
+  "from ib_async import Execution": {
+    "body": "from ib_async import Execution\n",
+    "prefix": "ib-execution"
+  },
+  "from ib_async import Fill": {
+    "body": "from ib_async import Fill\n",
+    "prefix": "ib-fill"
+  },
+  "from ib_async import Forex": {
+    "body": "from ib_async import Forex\n",
+    "prefix": "ib-forex"
+  },
+  "from ib_async import Future": {
+    "body": "from ib_async import Future\n",
+    "prefix": "ib-future"
+  },
+  "from ib_async import IB": {
+    "body": "from ib_async import IB\n",
+    "prefix": "ib-ib"
+  },
+  "from ib_async import Index": {
+    "body": "from ib_async import Index\n",
+    "prefix": "ib-index"
+  },
+  "from ib_async import Order": {
+    "body": "from ib_async import Order\n",
+    "prefix": "ib-order"
+  },
+  "from ib_async import OrderStatus": {
+    "body": "from ib_async import OrderStatus\n",
+    "prefix": "ib-order-status"
+  },
+  "from ib_async import Stock": {
+    "body": "from ib_async import Stock\n",
+    "prefix": "ib-stock"
+  },
+  "from ib_async import Trade": {
+    "body": "from ib_async import Trade\n",
+    "prefix": "ib-trade"
+  },
+  "from importlib.resources import files": {
+    "body": "from importlib.resources import files\n",
+    "prefix": "im-files"
+  },
+  "from inspect import signature": {
+    "body": "from inspect import signature\n",
+    "prefix": "in-signature"
+  },
+  "from io import StringIO": {
+    "body": "from io import StringIO\n",
+    "prefix": "io-string-io"
+  },
+  "from itertools import accumulate": {
+    "body": "from itertools import accumulate\n",
+    "prefix": "it-accumulate"
+  },
+  "from itertools import chain": {
+    "body": "from itertools import chain\n",
+    "prefix": "it-chain"
+  },
+  "from itertools import count": {
+    "body": "from itertools import count\n",
+    "prefix": "it-count"
+  },
+  "from itertools import cycle": {
+    "body": "from itertools import cycle\n",
+    "prefix": "it-cycle"
+  },
+  "from itertools import dropwhile": {
+    "body": "from itertools import dropwhile\n",
+    "prefix": "it-dropwhile"
+  },
+  "from itertools import groupby": {
+    "body": "from itertools import groupby\n",
+    "prefix": "it-groupby"
+  },
+  "from itertools import islice": {
+    "body": "from itertools import islice\n",
+    "prefix": "it-islice"
+  },
+  "from itertools import pairwise": {
+    "body": "from itertools import pairwise\n",
+    "prefix": "it-pairwise"
+  },
+  "from itertools import product": {
+    "body": "from itertools import product\n",
+    "prefix": "it-product"
+  },
+  "from itertools import repeat": {
+    "body": "from itertools import repeat\n",
+    "prefix": "it-repeat"
+  },
+  "from itertools import starmap": {
+    "body": "from itertools import starmap\n",
+    "prefix": "it-starmap"
+  },
+  "from itertools import takewhile": {
+    "body": "from itertools import takewhile\n",
+    "prefix": "it-takewhile"
+  },
+  "from logging import Formatter": {
+    "body": "from logging import Formatter\n",
+    "prefix": "lo-formatter"
+  },
+  "from logging import Handler": {
+    "body": "from logging import Handler\n",
+    "prefix": "lo-handler"
+  },
+  "from logging import StreamHandler": {
+    "body": "from logging import StreamHandler\n",
+    "prefix": "lo-stream-handler"
+  },
+  "from logging import basicConfig": {
+    "body": "from logging import basicConfig\n",
+    "prefix": "lo-basic-config"
+  },
+  "from logging import getLogger": {
+    "body": "from logging import getLogger\n",
+    "prefix": "lo-get-logger"
+  },
+  "from math import inf": {
+    "body": "from math import inf\n",
+    "prefix": "ma-inf"
+  },
+  "from math import isclose": {
+    "body": "from math import isclose\n",
+    "prefix": "ma-isclose"
+  },
+  "from math import isnan": {
+    "body": "from math import isnan\n",
+    "prefix": "ma-isnan"
+  },
+  "from math import nan": {
+    "body": "from math import nan\n",
+    "prefix": "ma-nan"
+  },
+  "from more_itertools import chunked": {
+    "body": "from more_itertools import chunked\n",
+    "prefix": "mo-chunked"
+  },
+  "from more_itertools import iterate": {
+    "body": "from more_itertools import iterate\n",
+    "prefix": "mo-iterate"
+  },
+  "from more_itertools import map_except": {
+    "body": "from more_itertools import map_except\n",
+    "prefix": "mo-map-except"
+  },
+  "from more_itertools import partition": {
+    "body": "from more_itertools import partition\n",
+    "prefix": "mo-partition"
+  },
+  "from more_itertools import split_after": {
+    "body": "from more_itertools import split_after\n",
+    "prefix": "mo-split-after"
+  },
+  "from numpy import arange": {
+    "body": "from numpy import arange\n",
+    "prefix": "nu-arange"
+  },
+  "from numpy import full": {
+    "body": "from numpy import full\n",
+    "prefix": "nu-full"
+  },
+  "from numpy import isnan": {
+    "body": "from numpy import isnan\n",
+    "prefix": "nu-isnan"
+  },
+  "from numpy import linspace": {
+    "body": "from numpy import linspace\n",
+    "prefix": "nu-linspace"
+  },
+  "from numpy import nan": {
+    "body": "from numpy import nan\n",
+    "prefix": "nu-nan"
+  },
+  "from numpy import ndarray": {
+    "body": "from numpy import ndarray\n",
+    "prefix": "nu-ndarray"
+  },
+  "from numpy import pi": {
+    "body": "from numpy import pi\n",
+    "prefix": "nu-pi"
+  },
+  "from operator import add": {
+    "body": "from operator import add\n",
+    "prefix": "op-add"
+  },
+  "from operator import and_": {
+    "body": "from operator import and_\n",
+    "prefix": "op-and-"
+  },
+  "from operator import eq": {
+    "body": "from operator import eq\n",
+    "prefix": "op-eq"
+  },
+  "from operator import ge": {
+    "body": "from operator import ge\n",
+    "prefix": "op-ge"
+  },
+  "from operator import gt": {
+    "body": "from operator import gt\n",
+    "prefix": "op-gt"
+  },
+  "from operator import le": {
+    "body": "from operator import le\n",
+    "prefix": "op-le"
+  },
+  "from operator import lt": {
+    "body": "from operator import lt\n",
+    "prefix": "op-lt"
+  },
+  "from operator import mul": {
+    "body": "from operator import mul\n",
+    "prefix": "op-mul"
+  },
+  "from operator import ne": {
+    "body": "from operator import ne\n",
+    "prefix": "op-ne"
+  },
+  "from operator import neg": {
+    "body": "from operator import neg\n",
+    "prefix": "op-neg"
+  },
+  "from operator import or_": {
+    "body": "from operator import or_\n",
+    "prefix": "op-or-"
+  },
+  "from operator import sub": {
+    "body": "from operator import sub\n",
+    "prefix": "op-sub"
+  },
+  "from operator import truediv": {
+    "body": "from operator import truediv\n",
+    "prefix": "op-truediv"
+  },
+  "from optuna import Study": {
+    "body": "from optuna import Study\n",
+    "prefix": "op-study"
+  },
+  "from optuna import Trial": {
+    "body": "from optuna import Trial\n",
+    "prefix": "op-trial"
+  },
+  "from optuna.pruners import BasePruner": {
+    "body": "from optuna.pruners import BasePruner\n",
+    "prefix": "op-base-pruner"
+  },
+  "from optuna.samplers import BaseSampler": {
+    "body": "from optuna.samplers import BaseSampler\n",
+    "prefix": "op-base-sampler"
+  },
+  "from optuna.study import StudyDirection": {
+    "body": "from optuna.study import StudyDirection\n",
+    "prefix": "op-study-direction"
+  },
+  "from os import environ": {
+    "body": "from os import environ\n",
+    "prefix": "os-environ"
+  },
+  "from pathlib import Path": {
+    "body": "from pathlib import Path\n",
+    "prefix": "pa-path"
+  },
+  "from polars import Boolean": {
+    "body": "from polars import Boolean\n",
+    "prefix": "po-boolean"
+  },
+  "from polars import DataFrame": {
+    "body": "from polars import DataFrame\n",
+    "prefix": "po-data-frame"
+  },
+  "from polars import Date": {
+    "body": "from polars import Date\n",
+    "prefix": "po-date"
+  },
+  "from polars import Datetime": {
+    "body": "from polars import Datetime\n",
+    "prefix": "po-datetime"
+  },
+  "from polars import Duration": {
+    "body": "from polars import Duration\n",
+    "prefix": "po-duration"
+  },
+  "from polars import Enum": {
+    "body": "from polars import Enum\n",
+    "prefix": "po-enum"
+  },
+  "from polars import Expr": {
+    "body": "from polars import Expr\n",
+    "prefix": "po-expr"
+  },
+  "from polars import Float64": {
+    "body": "from polars import Float64\n",
+    "prefix": "po-float64"
+  },
+  "from polars import Int16": {
+    "body": "from polars import Int16\n",
+    "prefix": "po-int16"
+  },
+  "from polars import Int32": {
+    "body": "from polars import Int32\n",
+    "prefix": "po-int32"
+  },
+  "from polars import Int64": {
+    "body": "from polars import Int64\n",
+    "prefix": "po-int64"
+  },
+  "from polars import Int8": {
+    "body": "from polars import Int8\n",
+    "prefix": "po-int8"
+  },
+  "from polars import List": {
+    "body": "from polars import List\n",
+    "prefix": "po-list"
+  },
+  "from polars import Series": {
+    "body": "from polars import Series\n",
+    "prefix": "po-series"
+  },
+  "from polars import String": {
+    "body": "from polars import String\n",
+    "prefix": "po-string"
+  },
+  "from polars import Struct": {
+    "body": "from polars import Struct\n",
+    "prefix": "po-Struct"
+  },
+  "from polars import UInt16": {
+    "body": "from polars import UInt16\n",
+    "prefix": "po-u-int16"
+  },
+  "from polars import UInt32": {
+    "body": "from polars import UInt32\n",
+    "prefix": "po-u-int32"
+  },
+  "from polars import UInt64": {
+    "body": "from polars import UInt64\n",
+    "prefix": "po-u-int64"
+  },
+  "from polars import UInt8": {
+    "body": "from polars import UInt8\n",
+    "prefix": "po-u-int8"
+  },
+  "from polars import Utf8": {
+    "body": "from polars import Utf8\n",
+    "prefix": "po-utf8"
+  },
+  "from polars import all_horizontal": {
+    "body": "from polars import all_horizontal\n",
+    "prefix": "po-all-horizontal"
+  },
+  "from polars import any_horizontal": {
+    "body": "from polars import any_horizontal\n",
+    "prefix": "po-any-horizontal"
+  },
+  "from polars import coalesce": {
+    "body": "from polars import coalesce\n",
+    "prefix": "po-coalesce"
+  },
+  "from polars import col": {
+    "body": "from polars import col\n",
+    "prefix": "po-col"
+  },
+  "from polars import concat": {
+    "body": "from polars import concat\n",
+    "prefix": "po-concat"
+  },
+  "from polars import date_range": {
+    "body": "from polars import date_range\n",
+    "prefix": "po-date-range"
+  },
+  "from polars import date_ranges": {
+    "body": "from polars import date_ranges\n",
+    "prefix": "po-date-ranges"
+  },
+  "from polars import datetime_range": {
+    "body": "from polars import datetime_range\n",
+    "prefix": "po-datetime-range"
+  },
+  "from polars import element": {
+    "body": "from polars import element\n",
+    "prefix": "po-element"
+  },
+  "from polars import from_epoch": {
+    "body": "from polars import from_epoch\n",
+    "prefix": "po-from-epoch"
+  },
+  "from polars import int_range": {
+    "body": "from polars import int_range\n",
+    "prefix": "po-int-range"
+  },
+  "from polars import int_ranges": {
+    "body": "from polars import int_ranges\n",
+    "prefix": "po-int-ranges"
+  },
+  "from polars import lit": {
+    "body": "from polars import lit\n",
+    "prefix": "po-lit"
+  },
+  "from polars import max_horizontal": {
+    "body": "from polars import max_horizontal\n",
+    "prefix": "po-max-horizontal"
+  },
+  "from polars import min_horizontal": {
+    "body": "from polars import min_horizontal\n",
+    "prefix": "po-min-horizontal"
+  },
+  "from polars import repeat": {
+    "body": "from polars import repeat\n",
+    "prefix": "po-repeat"
+  },
+  "from polars import struct": {
+    "body": "from polars import struct\n",
+    "prefix": "po-struct"
+  },
+  "from polars import when": {
+    "body": "from polars import when\n",
+    "prefix": "po-when"
+  },
+  "from polars._typing import IntoExpr": {
+    "body": "from polars._typing import IntoExpr\n",
+    "prefix": "po-into-expr"
+  },
+  "from polars._typing import IntoExprColumn": {
+    "body": "from polars._typing import IntoExprColumn\n",
+    "prefix": "po-into-expr-column"
+  },
+  "from polars._typing import SchemaDict": {
+    "body": "from polars._typing import SchemaDict\n",
+    "prefix": "po-schema-dict"
+  },
+  "from polars.exceptions import ColumnNotFoundError": {
+    "body": "from polars.exceptions import ColumnNotFoundError\n",
+    "prefix": "po-column-not-found-error"
+  },
+  "from polars.exceptions import ComputeError": {
+    "body": "from polars.exceptions import ComputeError\n",
+    "prefix": "po-compute-error"
+  },
+  "from polars.exceptions import NoRowsReturnedError": {
+    "body": "from polars.exceptions import NoRowsReturnedError\n",
+    "prefix": "po-no-rows-returned-error"
+  },
+  "from pytest import RaisesGroup": {
+    "body": "from pytest import RaisesGroup\n",
+    "prefix": "py-raises-group"
+  },
+  "from pytest import approx": {
+    "body": "from pytest import approx\n",
+    "prefix": "py-approx"
+  },
+  "from pytest import fixture": {
+    "body": "from pytest import fixture\n",
+    "prefix": "py-fixture"
+  },
+  "from pytest import mark": {
+    "body": "from pytest import mark, param\n",
+    "prefix": "py-mark"
+  },
+  "from pytest import raises": {
+    "body": "from pytest import raises\n",
+    "prefix": "py-raises"
+  },
+  "from pytest import skip": {
+    "body": "from pytest import skip\n",
+    "prefix": "py-skip"
+  },
+  "from pytest_benchmark.fixture import BenchmarkFixture": {
+    "body": "from pytest_benchmark.fixture import BenchmarkFixture\n",
+    "prefix": "py-benchmark-fixture"
+  },
+  "from pytest_lazy_fixtures import lf": {
+    "body": "from pytest_lazy_fixtures import lf\n",
+    "prefix": "py-lf"
+  },
+  "from pytest_regressions.dataframe_regression import DataFrameRegressionFixture": {
+    "body": "from pytest_regressions.dataframe_regression import DataFrameRegressionFixture\n",
+    "prefix": "py-data-frame-regression-fixture"
+  },
+  "from random import Random": {
+    "body": "from random import Random\n",
+    "prefix": "ra-random"
+  },
+  "from random import choice": {
+    "body": "from random import choice\n",
+    "prefix": "ra-choice"
+  },
+  "from random import randint": {
+    "body": "from random import randint\n",
+    "prefix": "ra-randint"
+  },
+  "from random import seed": {
+    "body": "from random import seed\n",
+    "prefix": "ra-seed"
+  },
+  "from random import shuffle": {
+    "body": "from random import shuffle\n",
+    "prefix": "ra-shuffle"
+  },
+  "from re import DOTALL": {
+    "body": "from re import DOTALL\n",
+    "prefix": "re-dotall"
+  },
+  "from re import IGNORECASE": {
+    "body": "from re import IGNORECASE\n",
+    "prefix": "re-ignorecase"
+  },
+  "from re import MULTILINE": {
+    "body": "from re import MULTILINE\n",
+    "prefix": "re-multiline"
+  },
+  "from re import escape": {
+    "body": "from re import escape\n",
+    "prefix": "re-escape"
+  },
+  "from re import findall": {
+    "body": "from re import findall\n",
+    "prefix": "re-findall"
+  },
+  "from re import search": {
+    "body": "from re import search\n",
+    "prefix": "re-search"
+  },
+  "from re import sub": {
+    "body": "from re import sub\n",
+    "prefix": "re-sub"
+  },
+  "from redis.asyncio import Redis": {
+    "body": "from redis.asyncio import Redis\n",
+    "prefix": "re-redis"
+  },
+  "from reprlib import repr": {
+    "body": "from reprlib import repr\n",
+    "prefix": "re-repr"
+  },
+  "from rich.pretty import pretty_repr": {
+    "body": "from rich.pretty import pretty_repr\n",
+    "prefix": "ri-pretty-repr"
+  },
+  "from shlex import join": {
+    "body": "from shlex import join\n",
+    "prefix": "sh-join"
+  },
+  "from shutil import copyfile": {
+    "body": "from shutil import copyfile\n",
+    "prefix": "sh-copyfile"
+  },
+  "from shutil import move": {
+    "body": "from shutil import move\n",
+    "prefix": "sh-move"
+  },
+  "from shutil import rmtree": {
+    "body": "from shutil import rmtree\n",
+    "prefix": "sh-rmtree"
+  },
+  "from shutil import which": {
+    "body": "from shutil import which\n",
+    "prefix": "sh-which"
+  },
+  "from sqlalchemy import Column": {
+    "body": "from sqlalchemy import Column\n",
+    "prefix": "sq-column"
+  },
+  "from sqlalchemy import and_": {
+    "body": "from sqlalchemy import and_\n",
+    "prefix": "sq-and-"
+  },
+  "from sqlalchemy import func": {
+    "body": "from sqlalchemy import func\n",
+    "prefix": "sq-func"
+  },
+  "from sqlalchemy import insert": {
+    "body": "from sqlalchemy import insert\n",
+    "prefix": "sq-insert"
+  },
+  "from sqlalchemy import or_": {
+    "body": "from sqlalchemy import or_\n",
+    "prefix": "sq-or-"
+  },
+  "from sqlalchemy import select": {
+    "body": "from sqlalchemy import select\n",
+    "prefix": "sq-select"
+  },
+  "from sqlalchemy import text": {
+    "body": "from sqlalchemy import text\n",
+    "prefix": "sq-text"
+  },
+  "from sqlalchemy.engine.url import URL": {
+    "body": "from sqlalchemy.engine.url import URL\n",
+    "prefix": "sq-url"
+  },
+  "from sqlalchemy.exc import MultipleResultsFound": {
+    "body": "from sqlalchemy.exc import MultipleResultsFound\n",
+    "prefix": "sq-multiple-results-found"
+  },
+  "from sqlalchemy.exc import NoResultFound": {
+    "body": "from sqlalchemy.exc import NoResultFound\n",
+    "prefix": "sq-no-result-found"
+  },
+  "from stat import S_IRGRP": {
+    "body": "from stat import S_IRGRP\n",
+    "prefix": "st-s-irgrp"
+  },
+  "from stat import S_IROTH": {
+    "body": "from stat import S_IROTH\n",
+    "prefix": "st-s-iroth"
+  },
+  "from stat import S_IRUSR": {
+    "body": "from stat import S_IRUSR\n",
+    "prefix": "st-s-irusr"
+  },
+  "from stat import S_ISUID": {
+    "body": "from stat import S_ISUID\n",
+    "prefix": "st-s-isuid"
+  },
+  "from stat import S_IWGRP": {
+    "body": "from stat import S_IWGRP\n",
+    "prefix": "st-s-iwgrp"
+  },
+  "from stat import S_IWOTH": {
+    "body": "from stat import S_IWOTH\n",
+    "prefix": "st-s-iwoth"
+  },
+  "from stat import S_IWUSR": {
+    "body": "from stat import S_IWUSR\n",
+    "prefix": "st-s-iwusr"
+  },
+  "from stat import S_IXGRP": {
+    "body": "from stat import S_IXGRP\n",
+    "prefix": "st-s-ixgrp"
+  },
+  "from stat import S_IXOTH": {
+    "body": "from stat import S_IXOTH\n",
+    "prefix": "st-s-ixoth"
+  },
+  "from stat import S_IXUSR": {
+    "body": "from stat import S_IXUSR\n",
+    "prefix": "st-s-ixusr"
+  },
+  "from statistics import fmean": {
+    "body": "from statistics import fmean\n",
+    "prefix": "st-fmean"
+  },
+  "from statistics import mean": {
+    "body": "from statistics import mean\n",
+    "prefix": "st-mean"
+  },
+  "from string import Template": {
+    "body": "from string import Template\n",
+    "prefix": "st-template"
+  },
+  "from string import ascii_letters": {
+    "body": "from string import ascii_letters\n",
+    "prefix": "st-ascii-letters"
+  },
+  "from subprocess import CalledProcessError": {
+    "body": "from subprocess import CalledProcessError\n",
+    "prefix": "su-called-process-error"
+  },
+  "from subprocess import check_call": {
+    "body": "from subprocess import check_call\n",
+    "prefix": "su-check-call"
+  },
+  "from subprocess import check_output": {
+    "body": "from subprocess import check_output\n",
+    "prefix": "su-check-output"
+  },
+  "from subprocess import run": {
+    "body": "from subprocess import run\n",
+    "prefix": "su-run"
+  },
+  "from sys import stderr": {
+    "body": "from sys import stderr\n",
+    "prefix": "sy-stderr"
+  },
+  "from sys import stdout": {
+    "body": "from sys import stdout\n",
+    "prefix": "sy-stdout"
+  },
+  "from tempfile import TemporaryDirectory": {
+    "body": "from tempfile import TemporaryDirectory\n",
+    "prefix": "te-temporary-directory"
+  },
+  "from tenacity import retry": {
+    "body": "from tenacity import retry\n",
+    "prefix": "te-retry"
+  },
+  "from textwrap import dedent": {
+    "body": "from textwrap import dedent\n",
+    "prefix": "te-dedent"
+  },
+  "from textwrap import indent": {
+    "body": "from textwrap import indent\n",
+    "prefix": "te-indent"
+  },
+  "from threading import RLock": {
+    "body": "from threading import RLock\n",
+    "prefix": "th-r-lock"
+  },
+  "from time import sleep": {
+    "body": "from time import sleep\n",
+    "prefix": "ti-sleep"
+  },
+  "from tqdm import tqdm": {
+    "body": "from tqdm import tqdm\n",
+    "prefix": "tq-tqdm"
+  },
+  "from tqdm import trange": {
+    "body": "from tqdm import trange\n",
+    "prefix": "tq-trange"
+  },
+  "from typing import Any": {
+    "body": "from typing import Any\n",
+    "prefix": "ty-any"
+  },
+  "from typing import ClassVar": {
+    "body": "from typing import ClassVar\n",
+    "prefix": "ty-class-var"
+  },
+  "from typing import Generic": {
+    "body": "from typing import Generic\n",
+    "prefix": "ty-generic"
+  },
+  "from typing import Literal": {
+    "body": "from typing import Literal\n",
+    "prefix": "ty-literal"
+  },
+  "from typing import NotRequired": {
+    "body": "from typing import NotRequired\n",
+    "prefix": "ty-not-required"
+  },
+  "from typing import Protocol": {
+    "body": "from typing import Protocol\n",
+    "prefix": "ty-protocol"
+  },
+  "from typing import Required": {
+    "body": "from typing import Required\n",
+    "prefix": "ty-required"
+  },
+  "from typing import Self": {
+    "body": "from typing import Self\n",
+    "prefix": "ty-self"
+  },
+  "from typing import TYPE_CHECKING": {
+    "body": "from typing import TYPE_CHECKING\n",
+    "prefix": "ty-type-checking"
+  },
+  "from typing import TypeVar": {
+    "body": "from typing import TypeVar\n",
+    "prefix": "ty-type-var"
+  },
+  "from typing import TypedDict": {
+    "body": "from typing import TypedDict\n",
+    "prefix": "ty-typed-dict"
+  },
+  "from typing import assert_never": {
+    "body": "from typing import assert_never\n",
+    "prefix": "ty-assert-never"
+  },
+  "from typing import cast": {
+    "body": "from typing import cast\n",
+    "prefix": "ty-cast"
+  },
+  "from typing import overload": {
+    "body": "from typing import overload\n",
+    "prefix": "ty-overload"
+  },
+  "from typing import override": {
+    "body": "from typing import override\n",
+    "prefix": "ty-override"
+  },
+  "from urllib.parse import ParseResult": {
+    "body": "from urllib.parse import ParseResult\n",
+    "prefix": "ur-parse-result"
+  },
+  "from urllib.parse import urlparse": {
+    "body": "from urllib.parse import urlparse\n",
+    "prefix": "ur-urlparse"
+  },
+  "from urllib.request import Request": {
+    "body": "from urllib.request import Request\n",
+    "prefix": "ur-request"
+  },
+  "from urllib.request import urlopen": {
+    "body": "from urllib.request import urlopen\n",
+    "prefix": "ur-urlopen"
+  },
+  "from utilities.click import CONTEXT_SETTINGS": {
+    "body": "from utilities.click import CONTEXT_SETTINGS\n",
+    "prefix": "ut-context-settings"
+  },
+  "from utilities.click import Str": {
+    "body": "from utilities.click import Str\n",
+    "prefix": "ut-str"
+  },
+  "from utilities.click import argument": {
+    "body": "from utilities.click import argument\n",
+    "prefix": "ut-argument"
+  },
+  "from utilities.constants import MINUTE": {
+    "body": "from utilities.constants import MINUTE\n",
+    "prefix": "ut-minute"
+  },
+  "from utilities.constants import sentinel, Sentinel": {
+    "body": "from utilities.constants import sentinel, Sentinel\n",
+    "prefix": "ut-sentinel"
+  },
+  "from utilities.contextvars import set_global_breakpoint": {
+    "body": "from utilities.contextvars import set_global_breakpoint\n",
+    "prefix": "ut-set-global-breakpoint"
+  },
+  "from utilities.core import is_pytest": {
+    "body": "from utilities.core import is_pytest\n",
+    "prefix": "ut-is-pytest"
+  },
+  "from utilities.core import set_up_logging": {
+    "body": "from utilities.core import set_up_logging\n",
+    "prefix": "ut-set-up-logging"
+  },
+  "from utilities.core import to_logger": {
+    "body": "from utilities.core import to_logger\n",
+    "prefix": "ut-to-logger"
+  },
+  "from utilities.pydantic import ensure_secret": {
+    "body": "from utilities.pydantic import ensure_secret\n",
+    "prefix": "ut-ensure-secret"
+  },
+  "from utilities.pydantic import extract_secret": {
+    "body": "from utilities.pydantic import extract_secret\n",
+    "prefix": "ut-extract-secret"
+  },
+  "from utilities.pytest import skipif_ci": {
+    "body": "from utilities.pytest import skipif_ci\n",
+    "prefix": "ut-skipif-ci"
+  },
+  "from utilities.pytest import throttle_test": {
+    "body": "from utilities.pytest import throttle_test\n",
+    "prefix": "ut-throttle-test"
+  },
+  "from utilities.subprocess import run": {
+    "body": "from utilities.subprocess import run\n",
+    "prefix": "ut-run"
+  },
+  "from utilities.subprocess import set_hostname_cmd": {
+    "body": "from utilities.subprocess import set_hostname_cmd\n",
+    "prefix": "ut-set-hostname-cmd"
+  },
+  "from utilities.subprocess import ssh": {
+    "body": "from utilities.subprocess import ssh\n",
+    "prefix": "ut-ssh"
+  },
+  "from utilities.subprocess import ssh_keyscan": {
+    "body": "from utilities.subprocess import ssh_keyscan\n",
+    "prefix": "ut-ssh-keyscan"
+  },
+  "from utilities.subprocess import sudo_cmd": {
+    "body": "from utilities.subprocess import sudo_cmd\n",
+    "prefix": "ut-sudo-cmd"
+  },
+  "from utilities.subprocess import tee_cmd": {
+    "body": "from utilities.subprocess import tee_cmd\n",
+    "prefix": "ut-tee-cmd"
+  },
+  "from utilities.subprocess import uv_run": {
+    "body": "from utilities.subprocess import uv_run\n",
+    "prefix": "ut-uv-run"
+  },
+  "from uuid import UUID": {
+    "body": "from uuid import UUID\n",
+    "prefix": "uu-uuid"
+  },
+  "from uuid import uuid4": {
+    "body": "from uuid import uuid4\n",
+    "prefix": "uu-uuid4"
+  },
+  "from whenever import Date": {
+    "body": "from whenever import Date\n",
+    "prefix": "wh-date"
+  },
+  "from whenever import DateDelta": {
+    "body": "from whenever import DateDelta\n",
+    "prefix": "wh-date-delta"
+  },
+  "from whenever import DateTimeDelta": {
+    "body": "from whenever import DateTimeDelta\n",
+    "prefix": "wh-date-time-delta"
+  },
+  "from whenever import PlainDateTime": {
+    "body": "from whenever import PlainDateTime\n",
+    "prefix": "wh-plain-date-time"
+  },
+  "from whenever import Time": {
+    "body": "from whenever import Time\n",
+    "prefix": "wh-time"
+  },
+  "from whenever import TimeDelta": {
+    "body": "from whenever import TimeDelta\n",
+    "prefix": "wh-time-delta"
+  },
+  "from whenever import ZonedDateTime": {
+    "body": "from whenever import ZonedDateTime\n",
+    "prefix": "wh-zoned-date-time"
+  },
+  "from zoneinfo import ZoneInfo": {
+    "body": "from zoneinfo import ZoneInfo\n",
+    "prefix": "zo-zone-info"
+  },
+  "import abc": {
+    "body": "import abc\n",
+    "prefix": "im-abc"
+  },
+  "import ast": {
+    "body": "import ast\n",
+    "prefix": "im-ast"
+  },
+  "import asyncio": {
+    "body": "import asyncio\n",
+    "prefix": "im-asyncio"
+  },
+  "import base64": {
+    "body": "import base64\n",
+    "prefix": "im-base64"
+  },
+  "import bisect": {
+    "body": "import bisect\n",
+    "prefix": "im-bisect"
+  },
+  "import builtins": {
+    "body": "import builtins\n",
+    "prefix": "im-builtins"
+  },
+  "import calendar": {
+    "body": "import calendar\n",
+    "prefix": "im-calendar"
+  },
+  "import cmath": {
+    "body": "import cmath\n",
+    "prefix": "im-cmath"
+  },
+  "import concurrent.futures": {
+    "body": "import concurrent.futures\n",
+    "prefix": "im-concurrent-futures"
+  },
+  "import contextlib": {
+    "body": "import contextlib\n",
+    "prefix": "im-contextlib"
+  },
+  "import contextvars": {
+    "body": "import contextvars\n",
+    "prefix": "im-contextvars"
+  },
+  "import copy": {
+    "body": "import copy\n",
+    "prefix": "im-copy"
+  },
+  "import csv": {
+    "body": "import csv\n",
+    "prefix": "im-csv"
+  },
+  "import dataclasses": {
+    "body": "import dataclasses\n",
+    "prefix": "im-dataclasses"
+  },
+  "import datetime as dt": {
+    "body": "import datetime as dt\n",
+    "prefix": "im-datetime"
+  },
+  "import decimal": {
+    "body": "import decimal\n",
+    "prefix": "im-decimal"
+  },
+  "import enum": {
+    "body": "import enum\n",
+    "prefix": "im-enum"
+  },
+  "import fractions": {
+    "body": "import fractions\n",
+    "prefix": "im-fractions"
+  },
+  "import functools": {
+    "body": "import functools\n",
+    "prefix": "im-functools"
+  },
+  "import gettext": {
+    "body": "import gettext\n",
+    "prefix": "im-gettext"
+  },
+  "import glob": {
+    "body": "import glob\n",
+    "prefix": "im-glob"
+  },
+  "import gzip": {
+    "body": "import gzip\n",
+    "prefix": "im-gzip"
+  },
+  "import hashlib": {
+    "body": "import hashlib\n",
+    "prefix": "im-hashlib"
+  },
+  "import heapq": {
+    "body": "import heapq\n",
+    "prefix": "im-heapq"
+  },
+  "import imaplib": {
+    "body": "import imaplib\n",
+    "prefix": "im-imaplib"
+  },
+  "import inspect": {
+    "body": "import inspect\n",
+    "prefix": "im-inspect"
+  },
+  "import io": {
+    "body": "import io\n",
+    "prefix": "im-io"
+  },
+  "import itertools": {
+    "body": "import itertools\n",
+    "prefix": "im-itertools"
+  },
+  "import json": {
+    "body": "import json\n",
+    "prefix": "im-json"
+  },
+  "import locale": {
+    "body": "import locale\n",
+    "prefix": "im-locale"
+  },
+  "import logging": {
+    "body": "import logging\n",
+    "prefix": "im-logging"
+  },
+  "import math": {
+    "body": "import math\n",
+    "prefix": "im-math"
+  },
+  "import multiprocessing": {
+    "body": "import multiprocessing\n",
+    "prefix": "im-multiprocessing"
+  },
+  "import numbers": {
+    "body": "import numbers\n",
+    "prefix": "im-numbers"
+  },
+  "import numpy as np": {
+    "body": "import numpy as np\n",
+    "prefix": "im-numpy"
+  },
+  "import operator": {
+    "body": "import operator\n",
+    "prefix": "im-operator"
+  },
+  "import os": {
+    "body": "import os\n",
+    "prefix": "im-os"
+  },
+  "import pathlib": {
+    "body": "import pathlib\n",
+    "prefix": "im-pathlib"
+  },
+  "import pickle": {
+    "body": "import pickle\n",
+    "prefix": "im-pickle"
+  },
+  "import platform": {
+    "body": "import platform\n",
+    "prefix": "im-platform"
+  },
+  "import polars as pl": {
+    "body": "import polars as pl\n",
+    "prefix": "im-polars"
+  },
+  "import poplib": {
+    "body": "import poplib\n",
+    "prefix": "im-poplib"
+  },
+  "import pprint": {
+    "body": "import pprint\n",
+    "prefix": "im-pprint"
+  },
+  "import random": {
+    "body": "import random\n",
+    "prefix": "im-random"
+  },
+  "import re": {
+    "body": "import re\n",
+    "prefix": "im-re"
+  },
+  "import reprlib": {
+    "body": "import reprlib\n",
+    "prefix": "im-reprlib"
+  },
+  "import secrets": {
+    "body": "import secrets\n",
+    "prefix": "im-secrets"
+  },
+  "import shutil": {
+    "body": "import shutil\n",
+    "prefix": "im-shutil"
+  },
+  "import smtplib": {
+    "body": "import smtplib\n",
+    "prefix": "im-smtplib"
+  },
+  "import socket": {
+    "body": "import socket\n",
+    "prefix": "im-socket"
+  },
+  "import stat": {
+    "body": "import stat\n",
+    "prefix": "im-stat"
+  },
+  "import statistics": {
+    "body": "import statistics\n",
+    "prefix": "im-statistics"
+  },
+  "import string": {
+    "body": "import string\n",
+    "prefix": "im-string"
+  },
+  "import subprocess": {
+    "body": "import subprocess\n",
+    "prefix": "im-subprocess"
+  },
+  "import sys": {
+    "body": "import sys\n",
+    "prefix": "im-sys"
+  },
+  "import tempfile": {
+    "body": "import tempfile\n",
+    "prefix": "im-tempfile"
+  },
+  "import textwrap": {
+    "body": "import textwrap\n",
+    "prefix": "im-textwrap"
+  },
+  "import threading": {
+    "body": "import threading\n",
+    "prefix": "im-threading"
+  },
+  "import time": {
+    "body": "import time\n",
+    "prefix": "im-time"
+  },
+  "import types": {
+    "body": "import types\n",
+    "prefix": "im-types"
+  },
+  "import typing": {
+    "body": "import typing\n",
+    "prefix": "im-typing"
+  },
+  "import unittest": {
+    "body": "import unittest\n",
+    "prefix": "im-unittest"
+  },
+  "import urllib": {
+    "body": "import urllib\n",
+    "prefix": "im-urllib"
+  },
+  "import uuid": {
+    "body": "import uuid\n",
+    "prefix": "im-uuid"
+  },
+  "import wave": {
+    "body": "import wave\n",
+    "prefix": "im-wave"
+  },
+  "import zipfile": {
+    "body": "import zipfile\n",
+    "prefix": "im-zipfile"
+  },
+  "import zlib": {
+    "body": "import zlib\n",
+    "prefix": "im-zlib"
+  },
+  "import zoneinfo": {
+    "body": "import zoneinfo\n",
+    "prefix": "im-zoneinfo"
+  },
+  "logger: LoggerAdapter = field(init=False)": {
+    "body": "logger: LoggerAdapter = field(init=False)\n",
+    "prefix": "logger-adapter"
+  },
+  "marks=mark.only": {
+    "body": "marks=mark.only",
+    "prefix": "mmo"
+  },
+  "marks=mark.skip": {
+    "body": "marks=mark.skip",
+    "prefix": "mms"
+  },
+  "marks=mark.xfail": {
+    "body": "marks=mark.xfail",
+    "prefix": "mmx"
+  },
+  "raise NotImplementedError": {
+    "body": "raise NotImplementedError\n",
+    "prefix": "nie"
+  },
+  "read_pickle (test)": {
+    "body": "from utilities.core import read_pickle\nfrom utilities.pathlib import get_repo_root\n\n${1:obj} = read_pickle(get_repo_root().joinpath(\"pickles\", \"pytest-tmp.gz\"))\n",
+    "prefix": "test-read-pickle"
+  },
+  "with raises(...):": {
+    "body": "with raises(${1:Exception}, match=r\"${2:match}\"):\n    ${3:pass}",
+    "prefix": "with-raises"
+  },
+  "write_pickle (test)": {
+    "body": "from utilities.core import write_pickle\nfrom utilities.path import get_repo_root\n\nwrite_pickle(${1:obj}, get_repo_root().joinpath(\"pickles\", \"pytest-tmp.gz\"), overwrite=True)\n",
+    "prefix": "test-write-pickle"
+  }
+}

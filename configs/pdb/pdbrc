@@ -1,0 +1,8 @@
+unalias p
+alias p (lambda v: (__import__('rich').print(v) if __import__('importlib', fromlist=['util']).util.find_spec('rich') else print(v)))(%1)
+alias pl (lambda _l: (__import__('rich').print({k: v for k, v in _l.items() if not k.startswith('@')}) if __import__('importlib', fromlist=['util']).util.find_spec('rich') else print({k: v for k, v in _l.items() if not k.startswith('@')})))(locals())
+alias i import rich; rich.inspect(%1)
+alias im import rich; rich.inspect(%1, methods=True)
+alias ip import rich; rich.inspect(%1, private=True)
+alias id import rich; rich.inspect(%1, dunder=True)
+alias ia import rich; rich.inspect(%1, all=True)

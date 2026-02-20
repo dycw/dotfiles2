@@ -1,0 +1,3 @@
+return {
+	"numtostr/comment.nvim",
+}

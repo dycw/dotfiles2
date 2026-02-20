@@ -1,0 +1,187 @@
+[alias]
+  # branch
+  branch-default = "!git branch --all --list --sort=-committerdate --verbose"
+  branch-delete = "!git branch --delete --force"
+  purge-local = "! \
+    current=$(git current-branch); \
+    git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads \
+    | awk -v cur=\"$current\" '$1 != cur && /gone]/{print $1}' \
+    | xargs -r git branch -D \
+  "
+
+  # checkout
+  reset-unmerged = "checkout --conflict=merge ."
+
+  # clean
+  clean-default = "! \
+    git clean --force -d -x && \
+    git reset --hard \
+  "
+
+  # diff
+  diff-remote = "!git diff $(git default-remote-branch)"
+  nvim-unmerged = "!git diff --name-only --diff-filter=U -z | xargs -0 nvim"
+  is-clean = "!git diff --quiet && git diff --cached --quiet"
+
+  # fetch
+  fetch-default = "! \
+    git fetch --all --force --prune --prune-tags --recurse-submodules=yes \
+      --tags && \
+    git purge-local \
+  "
+
+  # log
+  log-default = "! \
+    git log --abbrev-commit --decorate=short \
+      --pretty=\"format:%C(red)%h%C(reset) | %C(yellow)%d%C(reset) | %s | %Cgreen%cr%C(reset)\" \
+  "
+
+  # pull
+  pull-default = "! \
+    git pull --all --force --prune --recurse-submodules=yes --tags && \
+    git purge-local \
+  "
+
+  # push
+  branch-delete-remote = "!git push --delete origin"
+
+  # remote
+  remote-name = "!git remote get-url origin"
+  repo-name = "!basename -s .git $(git remote-name)"
+
+  # reset
+  hard-reset = "!f() { \
+    git clean-default && \
+    git fetch-default && \
+    { if [ "$(git current-branch)" != 'master' ]; then \
+        git checkout master; \
+      fi; } && \
+    git reset --hard origin/master && \
+    { if [ "$1" != master ] && "$(git is-valid-ref $1)"; then \
+        git branch -D $1; \
+      fi; } && \
+    { if [ "$1" != master ] && "$(git is-valid-ref origin/$1)"; then \
+        git checkout $1; \
+      fi; } \
+  }; f"
+
+  # rev-parse
+  current-branch = "!git rev-parse --abbrev-ref HEAD"
+  repo-root = "!git rev-parse --show-toplevel"
+
+  # show-ref
+  is-valid-ref = "!f() { \
+    git is-valid-ref1 $1 || \
+    git is-valid-ref1 heads/$1 || \
+    git is-valid-ref1 remotes/$1 || \
+    git is-valid-ref1 tags/$1 >/dev/null; \
+  }; f"
+  is-valid-ref1 = "!f() { git show-ref --verify --quiet refs/$1; }; f"
+
+  # submodule
+  submodule-update = "! \
+    git submodule update --init --recursive && \
+    git submodule foreach --recursive \
+      'git checkout --force $(git default-local-branch) && git pull-default' \
+  "
+
+  # symbolic-ref
+  default-remote-branch = "!git symbolic-ref refs/remotes/origin/HEAD --short"
+  default-local-branch = "!git default-remote-branch | sed \"s#origin/##\""
+
+  # tag
+  tag-add = "!f() { \
+    git tag -a $1 $2 -m $1 && \
+    git push --tags --force --set-upstream origin && \
+    git log-default -n10; \
+  }; f"
+  tag-delete = "!f() { \
+    git tag --delete $@ && \
+    git push --delete origin $@ && \
+    git log-default -n10; \
+  }; f"
+
+[apply]
+  whitespace = nowarn
+
+[branch]
+  autoSetupMerge = always
+  autoSetupRebase = always
+
+[checkout]
+  defaultRemote = origin
+  guess = true
+
+[commit]
+  verbose = true
+
+[core]
+  excludesfile = ~/.config/git/ignore
+  pager = delta
+
+[diff]
+  colorMoved = default
+
+[delta]
+  hyperlinks = true
+  line-numbers = true
+  navigate = true
+  side-by-side = true
+
+[fetch]
+  prune = true
+  pruneTags = true
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
+[help]
+  autoCorrect = 1
+
+[interactive]
+  diffFilter = delta --color-only
+
+[init]
+  defaultBranch = master
+
+[log]
+  abbrevCommit = true
+  date = format:%Y-%m-%d %H:%M:%S (%a)
+  decorate = full
+
+[merge]
+  conflictstyle = diff3
+  tool = nvimdiff
+
+[mergetool "nvimdiff"]
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c \"wincmd w\"
+
+[pull]
+  default = upstream
+  ff = only
+
+[push]
+  autoSetupRemote = true
+  default = current
+  followTags = true
+
+[rebase]
+  abbreviateCommands = true
+  autoSquash = true
+  stat = true
+
+[status]
+  branch = true
+
+[submodule]
+  fetchJobs = 0
+
+[tag]
+  sort = version:refname
+
+[user]
+	email = noreply@github.com
+	name = github-actions-bot
