@@ -4,11 +4,14 @@ echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'bottom'..."
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd -P)
 
+mkdir -p /etc/bottom
+cp "${SCRIPT_DIR}/bottom/bottom.toml" /etc/bottom/bottom.toml
+
 link() {
 	home="$1"
 	target="${home}/.config/bottom/bottom.toml"
 	mkdir -p "$(dirname -- "${target}")"
-	ln -sfn "${SCRIPT_DIR}/bottom.toml" "${target}"
+	ln -sfn /etc/bottom/bottom.toml "${target}"
 	owner=$(stat -c '%U:%G' "${home}" 2>/dev/null || echo '')
 	[ -n "${owner}" ] && chown -h "${owner}" "${target}" 2>/dev/null || :
 }
