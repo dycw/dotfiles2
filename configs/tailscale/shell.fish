@@ -4,7 +4,15 @@ if not status is-interactive
     exit
 end
 
-###############################################################################
+#### auth key #################################################################
+
+if set -q XDG_CONFIG_HOME
+    export TAILSCALE_AUTH_KEY=$XDG_CONFIG_HOME/tailscale/auth-key.txt
+else
+    export TAILSCALE_AUTH_KEY=$HOME/.config/tailscale/auth-key.txt
+end
+
+#### ssh #####################################################################
 
 function ssh-dw-mac
     ssh-auto derekwan@(ts-ip dw-mac)
