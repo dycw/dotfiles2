@@ -14,7 +14,7 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'neovim'..."
 
-link "${SCRIPT_DIR}" "${XDG_CONFIG_HOME:-/.config}/nvim"
-link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-/.config}/fish/conf.d/neovim.fish"
+link "${SCRIPT_DIR}" "${XDG_CONFIG_HOME:-${HOME}/.config}/nvim"
+link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/neovim.fish"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'neovim'"

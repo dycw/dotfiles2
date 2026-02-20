@@ -14,8 +14,8 @@ link() {
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Setting up 'direnv'..."
 
-link "${SCRIPT_DIR}/direnv.toml" "${XDG_CONFIG_HOME:-/.config}/direnv/direnv.toml"
-link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-/.config}/fish/conf.d/direnv.fish"
-link "${SCRIPT_DIR}/shell.sh" "${XDG_CONFIG_HOME:-/.config}/posix/direnv.sh"
+link "${SCRIPT_DIR}/direnv.toml" "${XDG_CONFIG_HOME:-${HOME}/.config}/direnv/direnv.toml"
+link "${SCRIPT_DIR}/shell.fish" "${XDG_CONFIG_HOME:-${HOME}/.config}/fish/conf.d/direnv.fish"
+link "${SCRIPT_DIR}/shell.sh" "${XDG_CONFIG_HOME:-${HOME}/.config}/posix/direnv.sh"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Finished setting up 'direnv'"
