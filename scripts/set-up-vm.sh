@@ -25,8 +25,6 @@ EOF
 
 #### set up SSH ###############################################################
 
-AUTHORIZED_KEYS='https://raw.githubusercontent.com/dycw/authorized-keys/refs/heads/master/authorized_keys'
-uvx --from dycw-installer[cli]@latest set-up-keys "$(curl -fssL ${AUTHORIZED_KEYS})"
 uvx --from dycw-installer[cli]@latest set-up-ssh
 uvx --from dycw-installer[cli]@latest set-up-sshd --permit-root-login
 
